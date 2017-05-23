@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hello.mybatis.UserMapper">
+	<resultMap id="userCountMap" type="com.hello.mybatis.UserCount">
+		<id column="gender" property="gender" />
+		<result column="count_map" property="count" />
+	</resultMap>
+
+	<select id="getUser" parameterType="int" resultType="com.hello.mybatis.User">
+		select * from users where id = #{id}
+	</select>
+	
+	<select id='countUser' resultType="int">
+		select count(id) from users;
+	</select>
+	
+	<select id='countUserByGender' resultType="hashmap">
+		select gender, count(id) as count from users group by gender;
+	</select>
+	
+	<select id='countUserByGenderReturnResultMap' resultMap="userCountMap">
+		select gender, count(id) as count_map from users group by gender;
+	</select>
+	
+	<insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+		insert into Users(name, gender)
+		values (#{name}, #{gender})
+	</insert>
+	
+	<insert id="insertUserList" useGeneratedKeys="true" keyProperty="id">
+		insert into users(name, gender) values
+		<foreach item="item" collection="list" separator=",">
+		    (#{item.name}, #{item.gender})
+		</foreach>
+	</insert>
+	
+	<update id="updateUser">
+		update Users set
+		    name = #{name},
+		    gender = #{gender}
+		where id = #{id}
+	</update>
+	
+	<delete id="deleteUser">
+		delete from Users where id = #{id}
+	</delete>
+</mapper>
