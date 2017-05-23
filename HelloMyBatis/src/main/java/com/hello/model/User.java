@@ -1,4 +1,4 @@
-package com.hello.mybatis;
+package com.hello.model;
 
 import org.apache.ibatis.type.Alias;
 

@@ -9,11 +9,18 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.hello.mapper.UserMapper;
+import com.hello.model.User;
+
 /**
  * Hello world!
  *
  */
 public class App {
+	/**
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 		System.out.println("Hello MyBatis!");
 
@@ -28,8 +35,7 @@ public class App {
 			User user = mapper.getUser(1);
 			System.out.println(user != null ? user.toString() : "No result");
 
-			int count = mapper.countUser();
-			System.out.println("Total user count: " + String.valueOf(count));
+			System.out.println("Total user count: " + String.valueOf(mapper.countUser()));
 
 			List<?> lst = mapper.countUserByGender();
 			System.out.println("Count user by gender: " + String.valueOf(lst));

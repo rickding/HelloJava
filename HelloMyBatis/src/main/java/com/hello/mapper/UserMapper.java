@@ -1,6 +1,9 @@
-package com.hello.mybatis;
+package com.hello.mapper;
 
 import java.util.List;
+
+import com.hello.model.User;
+import com.hello.model.UserCount;
 
 public interface UserMapper {
 	public User getUser(int id);
