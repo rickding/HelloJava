@@ -21,9 +21,14 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+# Generated files
+dependency-reduced-pom.xml
+target*
 /.metadata
 /.recommenders
 /RemoteSystemsTempFiles
+
+# Other projects
 /AngelEnglish
 /WallE
 /WallE_git
