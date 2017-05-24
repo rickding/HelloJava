@@ -1,6 +1,4 @@
-package com.hello.mybatis;
-
-import java.io.IOException;
+package com.hello.junit;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -32,11 +30,5 @@ public class AppTest extends TestCase {
 	 */
 	public void testApp() {
 		assertTrue(true);
-
-		try {
-			App.main(null);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 }

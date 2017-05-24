@@ -22,7 +22,7 @@ public class UserCount {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "UserCount: [" + gender + ", " + count + "]";

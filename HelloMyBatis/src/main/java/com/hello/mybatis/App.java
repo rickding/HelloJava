@@ -31,7 +31,7 @@ public class App {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
-			
+
 			User user = mapper.getUser(1);
 			System.out.println(user != null ? user.toString() : "No result");
 
@@ -39,20 +39,20 @@ public class App {
 
 			List<?> lst = mapper.countUserByGender();
 			System.out.println("Count user by gender: " + String.valueOf(lst));
-			
+
 			if (user == null)
 				user = new User();
-			
+
 			user.setName(user.getName() + "i");
 			mapper.insertUser(user);
 			session.commit();
 			System.out.println("Count user by gender: " + String.valueOf(mapper.countUserByGenderReturnResultMap()));
-			
-			user.setGender((user.getGender() + 1) % 2); 
+
+			user.setGender((user.getGender() + 1) % 2);
 			mapper.updateUser(user);
 			session.commit();
 			System.out.println("Count user by gender: " + String.valueOf(mapper.countUserByGenderReturnResultMap()));
-			
+
 			mapper.deleteUser(user.getId());
 			session.commit();
 			System.out.println("Count user by gender: " + String.valueOf(mapper.countUserByGenderReturnResultMap()));
