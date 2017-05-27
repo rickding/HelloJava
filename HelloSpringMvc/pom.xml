@@ -3,13 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zavier</groupId>
     <artifactId>springmvc</artifactId>
+
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>springmvc Maven Webapp</name>
     <url>http://maven.apache.org</url>
+
     <build>
         <finalName>springmvc</finalName>
     </build>
+
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>

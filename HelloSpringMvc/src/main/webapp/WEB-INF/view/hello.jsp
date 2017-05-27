@@ -4,9 +4,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Spring Mvc Demo</title>
+    <title>Spring Mvc</title>
 </head>
 <body>
-<h1>Spring Mvc Demo Success!</h1>
+<h1>Spring Mvc from hello.jsp!</h1>
 </body>
 </html>
