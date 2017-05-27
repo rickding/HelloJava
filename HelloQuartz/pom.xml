@@ -28,6 +28,7 @@
             <artifactId>spring-context-support</artifactId>
             <version>${springframework.version}</version>
         </dependency>
+
         <!-- Transaction dependency is required with Quartz integration -->
         <dependency>
             <groupId>org.springframework</groupId>

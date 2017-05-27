@@ -1,6 +1,7 @@
 package com.hello.quartz.jobs;
 
 import com.hello.quartz.util.AnotherBean;
+import com.hello.quartz.util.DateUtil;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.scheduling.quartz.QuartzJobBean;
@@ -15,9 +16,11 @@ public class FirstScheduledJob extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext arg0)
             throws JobExecutionException {
-        System.out.println("I am FirstScheduledJob");
-        this.anotherBean.printAnotherMessage();
+        System.out.println(DateUtil.getHHmmSS() + " I am FirstScheduledJob");
 
+        if (null != anotherBean) {
+            anotherBean.printAnotherMessage();
+        }
     }
 
     public void setAnotherBean(AnotherBean anotherBean) {

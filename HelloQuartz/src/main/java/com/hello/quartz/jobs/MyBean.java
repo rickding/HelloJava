@@ -1,5 +1,6 @@
 package com.hello.quartz.jobs;
 
+import com.hello.quartz.util.DateUtil;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,7 +11,8 @@ import org.springframework.stereotype.Component;
 public class MyBean {
 
     public void printMessage() {
-        System.out.println("I am MyBean. I am called by MethodInvokingJobDetailFactoryBean using SimpleTriggerFactoryBean");
+
+        System.out.println(DateUtil.getHHmmSS() + " I am MyBean. I am called by MethodInvokingJobDetailFactoryBean using SimpleTriggerFactoryBean");
     }
 
 }

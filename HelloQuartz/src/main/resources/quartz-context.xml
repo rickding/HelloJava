@@ -30,18 +30,18 @@
         <property name="durability" value="true"/>
     </bean>
 
-    <!-- Run the job every 2 seconds with initial delay of 1 second -->
+    <!-- Run the job every 20 seconds with initial delay of 1 second -->
     <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
         <property name="jobDetail" ref="simpleJobDetail"/>
         <property name="startDelay" value="1000"/>
-        <property name="repeatInterval" value="2000"/>
+        <property name="repeatInterval" value="20000"/>
     </bean>
 
-    <!-- Run the job every 5 seconds -->
+    <!-- Run the job every 15 seconds -->
     <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="firstComplexJobDetail"/>
-        <!--<property name="cronExpression" value="0/5 * * ? * SAT-SUN" />-->
-        <property name="cronExpression" value="0/5 * * ? * *"/>
+        <!--<property name="cronExpression" value="0/15 * * ? * SAT-SUN" />-->
+        <property name="cronExpression" value="0/15 * * ? * *"/>
     </bean>
 
     <!-- Always run at 20:00 everyday -->
