@@ -16,7 +16,7 @@ public class FirstScheduledJob extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext arg0)
             throws JobExecutionException {
-        System.out.println(DateUtil.getHHmmSS() + " I am FirstScheduledJob");
+//        System.out.println(DateUtil.getHHmmSS() + " I am FirstScheduledJob");
 
         if (null != anotherBean) {
             anotherBean.printAnotherMessage();

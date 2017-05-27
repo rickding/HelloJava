@@ -20,7 +20,7 @@ public class DateUtil {
      */
     public static String getYYMMDD() {
         Date d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
         return sdf.format(d);
     }
 
@@ -32,7 +32,7 @@ public class DateUtil {
      */
     public static String getYYMMDDHHmmSS() {
         Date d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyMMddHHmmSS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd:HH:mm:ss");
         return sdf.format(d);
     }
 
@@ -44,7 +44,7 @@ public class DateUtil {
      */
     public static String getHHmmSS() {
         Date d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("HHmmSS");
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         return sdf.format(d);
     }
 
