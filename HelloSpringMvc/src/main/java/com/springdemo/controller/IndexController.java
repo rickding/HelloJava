@@ -9,7 +9,7 @@ public class IndexController {
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
     	// https://github.com/zavier/springmvc/
-    	
+    	System.out.println("IndexController.index");
         return "hello";
     }
 }
