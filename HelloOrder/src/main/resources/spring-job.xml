@@ -24,7 +24,7 @@
             <ref bean="channelOrderSyncTask"/>
         </property>
         <property name="cronExpression">
-            <value>0/15 * * * * ?</value>
+            <value>0/15 * * ? * *</value>
         </property>
     </bean>
 

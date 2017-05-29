@@ -19,9 +19,6 @@
     <!-- 访问静态资源 -->
     <mvc:default-servlet-handler/>
 
-    <!-- 注入 -->
-    <!--<import resource="classpath*:spring-job.xml"/>-->
-
     <!-- 视图解析器 -->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
