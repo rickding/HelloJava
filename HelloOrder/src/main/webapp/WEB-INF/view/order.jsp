@@ -11,6 +11,6 @@
     <title>Order</title>
 </head>
 <body>
-<h1>Hello Order from order.jsp</h1>
+<h1>Hello from order.jsp.</h1>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.hello.order.controller;
 
+import com.hello.util.DateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class OrderController {
     @RequestMapping(value = "order", method = RequestMethod.GET)
     public String order() {
-        System.out.println("OrderController.order called from order");
+        System.out.println(DateUtil.getHHmmSS() + " OrderController.order called from order");
         return "order";
     }
 }
