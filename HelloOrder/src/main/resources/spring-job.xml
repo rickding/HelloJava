@@ -19,7 +19,7 @@
     </bean>
 
     <!-- 定义触发时间：同步渠道订单 -->
-    <bean id="channelOrderSyncTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <bean id="channelOrderSyncTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail">
             <ref bean="channelOrderSyncTask"/>
         </property>

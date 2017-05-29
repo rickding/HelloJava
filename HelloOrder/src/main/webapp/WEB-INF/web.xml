@@ -5,10 +5,10 @@
 <web-app>
     <display-name>Order</display-name>
 
-    <context-param>
+<!--    <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring-job.xml</param-value>
-    </context-param>
+    </context-param>-->
 
     <servlet>
         <servlet-name>spring</servlet-name>
