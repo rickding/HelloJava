@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <context:component-scan base-package="com.hello.order.job"/>
+
+    <!-- 定义调用对象和调用对象的方法: 同步渠道订单 -->
+    <bean id="channelOrderSyncTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="channelOrderSyncJob"/>
+        </property>
+        <property name="targetMethod">
+            <value>taskStart</value>
+        </property>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <!-- 定义触发时间：同步渠道订单 -->
+    <bean id="channelOrderSyncTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="channelOrderSyncTask"/>
+        </property>
+        <property name="cronExpression">
+            <value>0/15 * * * * ?</value>
+        </property>
+    </bean>
+
+    <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序 -->
+    <bean id="startQuartz" lazy-init="false" autowire="no"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="jobDetails">
+            <list>
+                <ref bean="channelOrderSyncTask"/>
+            </list>
+        </property>
+
+        <property name="triggers">
+            <list>
+                <ref bean="channelOrderSyncTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
