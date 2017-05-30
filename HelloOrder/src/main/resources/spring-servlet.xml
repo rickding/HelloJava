@@ -13,8 +13,12 @@
     <!-- 配置扫描的包 -->
     <context:component-scan base-package="com.hello.order"/>
 
-    <!-- 注入 -->
+    <!-- 注入：定时任务 -->
     <import resource="classpath*:spring-job.xml"/>
+
+    <!-- stock库数据源及事务配置 -->
+    <import resource="classpath*:spring-datasource.xml" />
+
     <!-- 启用注解 -->
     <context:annotation-config />
 
@@ -30,5 +34,4 @@
         <property name="prefix" value="/WEB-INF/view/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
-
 </beans>
