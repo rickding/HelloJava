@@ -1,14 +1,15 @@
 package com.hello.order.job;
 
-import com.hello.order.mapper.ChannelOrderMapper;
+import com.hello.order.manage.ChannelOrderManage;
+import com.hello.order.manage.SystemOrderManage;
 import com.hello.order.model.ChannelOrder;
 import com.hello.order.model.SystemOrder;
 import com.hello.util.DateUtil;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by user on 2017/5/29.
@@ -17,8 +18,13 @@ import java.util.List;
 
 @Service("channelOrderSyncJob")
 public class ChannelOrderSyncJob extends AbstractJob {
-    @Resource
-    public ChannelOrderMapper channelOrderMapper;
+    private Logger logger = Logger.getLogger(ChannelOrderSyncJob.class);
+
+    @Autowired
+    private ChannelOrderManage channelOrderManage;
+
+    @Autowired
+    private SystemOrderManage systemOrderManage;
 
     @Override
     public String getJobName() {
@@ -35,20 +41,27 @@ public class ChannelOrderSyncJob extends AbstractJob {
      */
     @Override
     public void handle(/*JobConfigVO configVO*/) {
-        System.out.println(DateUtil.getHHmmSS() + " ChannelOrderSyncJob.handle");
+        logger.info(DateUtil.getHHmmSS() + " handle");
 
         // 读取渠道订单
-        ChannelOrder[] channelOrderList = fetchChannelOrders();
+        ChannelOrder[] channelOrderList = channelOrderManage.fetchChannelOrders();
         if (channelOrderList == null || channelOrderList.length <= 0) {
             return;
         }
 
         // 解析xml
         for (ChannelOrder channelOrder : channelOrderList) {
-            SystemOrder order = parseChannelOrder(channelOrder.getSourceContent());
+            SystemOrder order = systemOrderManage.parseChannelOrder(channelOrder.getSourceContent());
+
+            // 检查是否为空
+            if (null == order) {
+                logger.warn("Null order is parsed from " + channelOrder.getSourceContent());
+                continue;
+            }
 
             // 检查是否重复
             if (isDuplicated(order)) {
+                logger.warn("Duplicated order is parsed from " + channelOrder.getSourceContent());
                 continue;
             }
 
@@ -65,7 +78,7 @@ public class ChannelOrderSyncJob extends AbstractJob {
             }
 
             // 计算运费
-            for(SystemOrder subOrder : orderList) {
+            for (SystemOrder subOrder : orderList) {
                 calculateDeliveryFee(subOrder);
             }
 
@@ -78,31 +91,8 @@ public class ChannelOrderSyncJob extends AbstractJob {
     }
 
     /**
-     * 取渠道订单
-     * @return 渠道订单xml数组
-     */
-    private ChannelOrder[] fetchChannelOrders() {
-        if (channelOrderMapper != null) {
-            List<ChannelOrder> orderList = channelOrderMapper.selectAll();
-            if (null != orderList) {
-                ChannelOrder[] orders = new ChannelOrder[orderList.size()];
-                return orderList.toArray(orders);
-            }
-        }
-        return null;
-    }
-
-    /**
-     * 解析渠道订单为系统订单
-     * @param xml 渠道订单
-     * @return 系统订单
-     */
-    private SystemOrder parseChannelOrder(String xml) {
-        return null;
-    }
-
-    /**
      * 判断订单是否已经存在于系统订单中
+     *
      * @param order，系统订单
      * @return 是否已经存在
      */
@@ -112,6 +102,7 @@ public class ChannelOrderSyncJob extends AbstractJob {
 
     /**
      * 获取商品信息
+     *
      * @param order 系统订单
      */
     private void fetchProduct(SystemOrder order) {
@@ -120,6 +111,7 @@ public class ChannelOrderSyncJob extends AbstractJob {
 
     /**
      * 获取价格信息
+     *
      * @param order
      */
     private void fetchPrice(SystemOrder order) {
@@ -128,6 +120,7 @@ public class ChannelOrderSyncJob extends AbstractJob {
 
     /**
      * 根据仓库路由拆单
+     *
      * @param order 系统订单
      * @return 子订单数组，包含自己。当无须拆单时，返回数组只有自己。
      */
@@ -141,6 +134,7 @@ public class ChannelOrderSyncJob extends AbstractJob {
 
     /**
      * 计算配送费
+     *
      * @param order 子订单
      */
     private void calculateDeliveryFee(SystemOrder order) {
