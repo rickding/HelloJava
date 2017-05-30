@@ -7,7 +7,7 @@
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
+				<property name="driver" value="com.mysql.jdbc.Driver" />
 				<property name="url"
 					value="jdbc:mysql://localhost:3306/hellomybatis?serverTimezone=UTC" />
 				<property name="username" value="root" />
@@ -18,5 +18,7 @@
 
 	<mappers>
 		<mapper resource="mapper/UserMapper.xml" />
+        <mapper resource="mapper/ChannelOrderMapper.xml"/>
+        <mapper resource="mapper/SystemOrderMapper.xml"/>
 	</mappers>
 </configuration>
