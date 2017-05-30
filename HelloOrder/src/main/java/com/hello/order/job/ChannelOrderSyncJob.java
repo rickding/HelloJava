@@ -60,7 +60,7 @@ public class ChannelOrderSyncJob extends AbstractJob {
             }
 
             // 检查是否重复
-            if (isDuplicated(order)) {
+            if (systemOrderManage.isDuplicated(order)) {
                 logger.warn("Duplicated order is parsed from " + channelOrder.getSourceContent());
                 continue;
             }
@@ -83,21 +83,12 @@ public class ChannelOrderSyncJob extends AbstractJob {
             }
 
             // 保存
-            int count = insertOrders(orderList);
+            int count = systemOrderManage.insertOrders(orderList);
             if (count != orderList.length) {
                 // 保存失败
+                logger.error(String.format("Fail to save the new orders: %d, actual: %d", orderList.length, count));
             }
         }
-    }
-
-    /**
-     * 判断订单是否已经存在于系统订单中
-     *
-     * @param order，系统订单
-     * @return 是否已经存在
-     */
-    private boolean isDuplicated(SystemOrder order) {
-        return false;
     }
 
     /**
@@ -139,9 +130,5 @@ public class ChannelOrderSyncJob extends AbstractJob {
      */
     private void calculateDeliveryFee(SystemOrder order) {
 
-    }
-
-    private int insertOrders(SystemOrder[] orderList) {
-        return 0;
     }
 }

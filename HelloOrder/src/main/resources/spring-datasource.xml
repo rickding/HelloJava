@@ -42,7 +42,7 @@
 
     <aop:config>
         <aop:pointcut id="stockPointCut"
-                      expression="execution(* com.hello.order.manage.*.*(..))"/>
+                      expression="execution(* com.hello.order.manage..*.*(..))"/>
         <aop:advisor advice-ref="stockTxAdvice" pointcut-ref="stockPointCut"/>
     </aop:config>
 
@@ -54,6 +54,7 @@
             <list>
                 <!--配置公共的映射文件-->
                 <value>classpath*:mapper/*.xml</value>
+                <value>classpath*:mapper/ext/**/*.xml</value>
             </list>
         </property>
         <!--配置拦截器，可以配置多个拦截器-->
