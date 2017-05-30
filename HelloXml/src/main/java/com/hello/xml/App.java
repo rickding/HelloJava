@@ -1,11 +1,7 @@
 package com.hello.xml;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.dom4j.DocumentException;
 
-import javax.xml.stream.*;
 import java.io.*;
 
 /**
@@ -17,7 +13,7 @@ public class App {
         HelloXmlMapper.fromString("<Simple><x>3</x><y>4</y></Simple>");
 
         HelloStAX.mapToString();
-        HelloStAX.fromString();
+        HelloStAX.fromFile("C:\\Work\\x.xml");
 
         // dom4j, string
         try {

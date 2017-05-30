@@ -12,11 +12,11 @@ import java.io.StringWriter;
  * Created by user on 2017/5/27.
  */
 public class HelloStAX {
-    public static void fromString() {
+    public static void fromFile(String path) {
         try {
             // Parse xml
             XMLInputFactory f = XMLInputFactory.newFactory();
-            File inputFile = new File("C:\\Work\\x.xml");
+            File inputFile = new File(path);
             XMLStreamReader sr = f.createXMLStreamReader(new FileInputStream(inputFile));
 
             XmlMapper mapper = new XmlMapper();
