@@ -62,7 +62,15 @@ public class ChannelOrderSyncJob extends AbstractJob {
             // 检查是否重复
             if (systemOrderManage.isDuplicated(order)) {
                 logger.warn("Duplicated order is parsed from " + channelOrder.getSourceContent());
-                continue;
+
+//                continue;
+
+                while (systemOrderManage.isDuplicated(order)) {
+                    order.setOrderCode(order.getOrderCode() + "D");
+                }
+                if (order.getOrderCode().length() >= 255) {
+                    continue;
+                }
             }
 
             // 获取商品信息
