@@ -107,7 +107,7 @@ public class SystemOrderManage {
 
         int count = 0;
         for (SystemOrder order : orderList) {
-            count += systemOrderMapper.insert(order);
+            count += systemOrderMapper2.insert(order);
         }
 
         return count;

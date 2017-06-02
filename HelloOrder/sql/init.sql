@@ -19,6 +19,10 @@ INSERT INTO channel_order(order_code, source_content) VALUES
   ('EBAY_1', '<order><code>EBAY-1</code></order>'),
   ('EBAY_2', '<order><code>EBAY-2</code></order>');
 
+INSERT INTO channel_order(order_code, source_content) VALUES
+  ('EBAY_11', '<order><code>EBAY-11</code></order>'),
+  ('EBAY_12', '<order><code>EBAY-12</code></order>');
+
 -- table system_order
 DROP TABLE IF EXISTS system_order;
 

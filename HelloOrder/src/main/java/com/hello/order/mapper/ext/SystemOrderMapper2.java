@@ -1,5 +1,6 @@
 package com.hello.order.mapper.ext;
 
+import com.hello.order.model.SystemOrder;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,4 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SystemOrderMapper2 {
     int countByOrderCode(String orderCode);
+    int insert(SystemOrder record);
 }

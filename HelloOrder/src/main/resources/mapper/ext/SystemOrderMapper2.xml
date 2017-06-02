@@ -6,4 +6,11 @@
         from system_order
         where order_code = #{order_code,jdbcType=VARCHAR}
     </select>
+
+    <insert id="insert" parameterType="com.hello.order.model.SystemOrder">
+        insert into system_order (order_code, parent_order_code,
+        is_leaf)
+        values (#{orderCode,jdbcType=VARCHAR}, #{parentOrderCode,jdbcType=VARCHAR},
+        #{isLeaf,jdbcType=BIT})
+    </insert>
 </mapper>
