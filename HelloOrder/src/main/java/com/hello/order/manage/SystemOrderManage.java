@@ -1,6 +1,5 @@
 package com.hello.order.manage;
 
-import com.hello.order.mapper.SystemOrderMapper;
 import com.hello.order.mapper.ext.SystemOrderMapper2;
 import com.hello.order.model.SystemOrder;
 import org.apache.log4j.Logger;
@@ -21,13 +20,11 @@ public class SystemOrderManage {
     Logger logger = Logger.getLogger(SystemOrderManage.class);
 
     @Resource
-    private SystemOrderMapper systemOrderMapper;
-
-    @Resource
-    private SystemOrderMapper2 systemOrderMapper2;
+    private SystemOrderMapper2 systemOrderMapper;
 
     /**
      * 解析渠道订单为系统订单
+     *
      * @param xml 渠道订单
      * @return 系统订单
      */
@@ -82,6 +79,7 @@ public class SystemOrderManage {
 
     /**
      * 判断订单是否已经存在于系统订单中
+     *
      * @param order，系统订单
      * @return 是否已经存在
      */
@@ -91,11 +89,12 @@ public class SystemOrderManage {
             return false;
         }
 
-        return systemOrderMapper2.countByOrderCode(order.getOrderCode()) > 0;
+        return systemOrderMapper.countByOrderCode(order.getOrderCode()) > 0;
     }
 
     /**
      * 创建新订单
+     *
      * @param orderList
      * @return
      */
@@ -107,7 +106,7 @@ public class SystemOrderManage {
 
         int count = 0;
         for (SystemOrder order : orderList) {
-            count += systemOrderMapper2.insert(order);
+            count += systemOrderMapper.insert(order);
         }
 
         return count;
