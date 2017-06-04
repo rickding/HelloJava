@@ -6,8 +6,12 @@
     <groupId>com.hello</groupId>
     <artifactId>hello</artifactId>
 
-    <version>prod1.0-0.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <properties>
+        <maven.test.skip>false</maven.test.skip>
+    </properties>
 
     <modules>
         <module>HelloHessian</module>
