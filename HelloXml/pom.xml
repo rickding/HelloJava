@@ -6,7 +6,9 @@
 
     <groupId>com.hello.xml</groupId>
     <artifactId>xml</artifactId>
+
     <version>1.0-SNAPSHOT</version>
+    <name>xml</name>
 
     <dependencies>
         <!-- fasterxml -->

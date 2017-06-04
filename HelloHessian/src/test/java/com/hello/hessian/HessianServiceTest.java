@@ -1,10 +1,13 @@
 package com.hello.hessian;
 
 import com.caucho.hessian.client.HessianProxyFactory;
+import com.caucho.hessian.client.HessianRuntimeException;
 import com.hello.hessian.model.HelloWorld;
 import com.hello.hessian.service.HessianService;
 import org.junit.*;
+import org.junit.rules.ExpectedException;
 
+import java.net.ConnectException;
 import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +16,9 @@ import java.util.Map;
  * Created by user on 2017/6/4.
  */
 public class HessianServiceTest {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     private static HessianService service = null;
 
     @BeforeClass
@@ -40,6 +46,9 @@ public class HessianServiceTest {
         if (service == null) {
             return;
         }
+
+        thrown.expect(HessianRuntimeException.class);
+
         HelloWorld obj = service.sayHelloWorld();
         Assert.assertEquals("Hello World!", obj.getName());
     }
@@ -57,6 +66,8 @@ public class HessianServiceTest {
             put("name", "Hello name!");
         }};
         for (Map.Entry<String, String> i : io.entrySet()) {
+            thrown.expect(HessianRuntimeException.class);
+
             HelloWorld obj = service.sayHello(i.getKey());
             Assert.assertEquals(i.getValue(), obj.getName());
         }

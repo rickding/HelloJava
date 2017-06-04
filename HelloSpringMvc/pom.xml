@@ -2,15 +2,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zavier</groupId>
-    <artifactId>springmvc</artifactId>
+    <artifactId>spring.mvc</artifactId>
 
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springmvc Maven Webapp</name>
+    <name>spring.mvc</name>
     <url>http://maven.apache.org</url>
 
     <build>
-        <finalName>springmvc</finalName>
+        <finalName>spring.mvc</finalName>
     </build>
 
     <dependencies>
