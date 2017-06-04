@@ -14,13 +14,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 
 @Controller
-public class MonitorController {
-    private Logger logger = Logger.getLogger(MonitorController.class);
+@RequestMapping(value="/api")
+public class ApiController {
+    private Logger logger = Logger.getLogger(ApiController.class);
 
     @Autowired
     private ChannelOrderSyncJob channelOrderSyncJob;
 
-    @RequestMapping(value = "monitor", method = RequestMethod.GET)
+    @RequestMapping(value = "/monitor", method = RequestMethod.GET)
     @ResponseBody
     public String monitor() {
         logger.info(DateUtil.getHHmmSS() + " monitor");
