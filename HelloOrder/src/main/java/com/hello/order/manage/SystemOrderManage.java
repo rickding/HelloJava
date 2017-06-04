@@ -20,7 +20,7 @@ public class SystemOrderManage {
     Logger logger = Logger.getLogger(SystemOrderManage.class);
 
     @Resource
-    private SystemOrderMapper2 systemOrderMapper;
+    private SystemOrderMapper2 systemOrderMapper2;
 
     /**
      * 解析渠道订单为系统订单
@@ -89,7 +89,7 @@ public class SystemOrderManage {
             return false;
         }
 
-        return systemOrderMapper.countByOrderCode(order.getOrderCode()) > 0;
+        return systemOrderMapper2.countByOrderCode(order.getOrderCode()) > 0;
     }
 
     /**
@@ -106,7 +106,7 @@ public class SystemOrderManage {
 
         int count = 0;
         for (SystemOrder order : orderList) {
-            count += systemOrderMapper.insert(order);
+            count += systemOrderMapper2.insert(order);
         }
 
         return count;

@@ -10,6 +10,8 @@ CREATE TABLE channel_order (
   `id` INT NOT NULL AUTO_INCREMENT,
   `order_code` VARCHAR(255) DEFAULT NULL COMMENT 'source code from channel',
   `source_content` TEXT DEFAULT Null COMMENT 'source content, ebay is xml',
+  `gmt_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `gmt_modified` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY(`id`),
   INDEX `index_order_code` (`order_code`)
 ) ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_bin COMMENT='Channel order from other platforms';
@@ -31,6 +33,8 @@ CREATE TABLE system_order (
   `order_code` VARCHAR(255) DEFAULT NULL COMMENT 'source code from channel',
   `parent_order_code` VARCHAR(255) DEFAULT NULL COMMENT 'parent order code',
   `is_leaf` BOOLEAN DEFAULT FALSE COMMENT 'divided order or not. Parent is false',
+  `gmt_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `gmt_modified` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `index_order_code` (`order_code`)
 ) ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_bin COMMENT='System order, synced from channel_order';

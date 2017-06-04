@@ -25,6 +25,10 @@ hs_err_pid*
 dependency-reduced-pom.xml
 target*
 .idea*
+*.iml
+.classpath
+.project
+.settings*
 /.metadata
 /.recommenders
 /RemoteSystemsTempFiles

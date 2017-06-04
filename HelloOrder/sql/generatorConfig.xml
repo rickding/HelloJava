@@ -41,6 +41,8 @@
         <!-- table -->
         <table tableName="channel_order">
             <generatedKey column="id" sqlStatement="Mysql"/>
+            <ignoreColumn column="gmt_created"/>
+            <ignoreColumn column="gmt_modified"/>
         </table>
 
         <table tableName="system_order">

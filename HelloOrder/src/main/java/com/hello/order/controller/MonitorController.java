@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by user on 2017/5/29.
@@ -20,13 +21,11 @@ public class MonitorController {
     private ChannelOrderSyncJob channelOrderSyncJob;
 
     @RequestMapping(value = "monitor", method = RequestMethod.GET)
+    @ResponseBody
     public String monitor() {
         logger.info(DateUtil.getHHmmSS() + " monitor");
 
-        ChannelOrderSyncJob channelOrderSyncJob = new ChannelOrderSyncJob();
         channelOrderSyncJob.taskStart();
-
-        this.channelOrderSyncJob.taskStart();
 
         return DateUtil.getHHmmSS() + " Hello from monitor.";
     }

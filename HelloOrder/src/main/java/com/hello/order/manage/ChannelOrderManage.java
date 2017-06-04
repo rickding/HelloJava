@@ -1,6 +1,6 @@
 package com.hello.order.manage;
 
-import com.hello.order.mapper.ChannelOrderMapper;
+import com.hello.order.mapper.ext.ChannelOrderMapper2;
 import com.hello.order.model.ChannelOrder;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.List;
 @Service("channelOrderManage")
 public class ChannelOrderManage {
     @Resource
-    private ChannelOrderMapper channelOrderMapper;
+    private ChannelOrderMapper2 channelOrderMapper2;
 
     /**
      * 取渠道订单
@@ -22,8 +22,8 @@ public class ChannelOrderManage {
      * @return 渠道订单xml数组
      */
     public ChannelOrder[] fetchChannelOrders() {
-        if (channelOrderMapper != null) {
-            List<ChannelOrder> orderList = channelOrderMapper.selectAll();
+        if (channelOrderMapper2 != null) {
+            List<ChannelOrder> orderList = channelOrderMapper2.selectAll();
             if (null != orderList) {
                 ChannelOrder[] orders = new ChannelOrder[orderList.size()];
                 return orderList.toArray(orders);
