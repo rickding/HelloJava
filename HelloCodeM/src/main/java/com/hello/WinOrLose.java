@@ -17,22 +17,31 @@ public class WinOrLose {
         BigInteger n = sc.nextBigInteger();
 
         // Scan the scores and find the first winner compared with the first one
-        BigInteger score = sc.nextBigInteger();
-        BigInteger index = BigInteger.ZERO;
-        boolean ignore = false;
+        long score = sc.nextLong();
 
-        while (sc.hasNextLong()) {
-            if (!ignore && winOrLose(score, sc.nextBigInteger()) == 1) {
-                index.add(BigInteger.ONE);
+        BigInteger index = BigInteger.ZERO;
+        BigInteger mark = BigInteger.ONE;
+        int loop = 0;
+
+        while (sc.hasNext()) {
+            if (winOrLose(score, sc.nextLong()) == 1) {
+                index = index.add(BigInteger.ONE);
+
+                int tmp = index.compareTo(mark);
+                if (tmp >= 0) {
+                    // Start the next loop
+                    mark = mark.multiply(new BigInteger("2"));
+                    loop++;
+                }
             } else {
-                ignore = true;
+                break;
             }
         }
 
         sc.close();
 
         // Calculate the loops
-        System.out.println(index);
+        System.out.println(loop);
     }
 
     /**
@@ -41,9 +50,9 @@ public class WinOrLose {
      * @param second
      * @return
      */
-    public static int winOrLose(BigInteger first, BigInteger second) {
+    public static int winOrLose(long first, long second) {
         // Compare the scores
-        int compare = first.compareTo(second);
+        final long compare = first - second;
         if (compare > 0)
             return 1;
         else if (compare < 0)

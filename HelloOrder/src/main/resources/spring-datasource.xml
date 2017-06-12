@@ -15,7 +15,8 @@
         <property name="driverClassName">
             <value>com.mysql.jdbc.Driver</value>
         </property>
-        <property name="url">
+
+<!--        <property name="url">
             <value>jdbc:mysql://localhost:3306/hello_order</value>
         </property>
         <property name="username">
@@ -23,6 +24,16 @@
         </property>
         <property name="password">
             <value>root</value>
+        </property>-->
+
+        <property name="url">
+            <value>jdbc:mysql://192.168.1.140:3306/test</value>
+        </property>
+        <property name="username">
+            <value>tester</value>
+        </property>
+        <property name="password">
+            <value>tester</value>
         </property>
     </bean>
 

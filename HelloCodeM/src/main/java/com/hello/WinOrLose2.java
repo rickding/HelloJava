@@ -1,6 +1,8 @@
 package com.hello;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -22,16 +24,45 @@ public class WinOrLose2 {
 
         sc.close();
 
-        System.out.println(calculateLoop(ar, 0, ar.size() - 1));
+        System.out.println(calculateLoop(ar));
     }
 
     /**
      * Check how far the first person can go, the scope is [start, end]
      * @param ar
-     * @param start
-     * @param end
      * @return
      */
+    public static int calculateLoop(ArrayList<Long> ar) {
+        int n = ar.size();
+        if (n <= 1 || (n & (n - 1)) != 0) {
+            return 0;
+        }
+
+        // Scan the scores and find the first winner compared with the first one
+        Iterator<Long> iterator = ar.iterator();
+        long score = iterator.next();
+        BigInteger index = BigInteger.ZERO;
+        BigInteger mark = BigInteger.ONE;
+        int loop = 0;
+
+        while (iterator.hasNext()) {
+            if (winOrLose(score, iterator.next()) == 1) {
+                index = index.add(BigInteger.ONE);
+
+                int tmp = index.compareTo(mark);
+                if (tmp >= 0) {
+                    // Start the next loop
+                    mark = mark.multiply(new BigInteger("2"));
+                    loop++;
+                }
+            } else {
+                break;
+            }
+        }
+
+        return loop;
+    }
+    /*
     public static int calculateLoop(ArrayList<Long> ar, int start, int end) {
         int n = end - start + 1;
         if (n <= 1 || (n & (n - 1)) != 0) {
@@ -54,7 +85,7 @@ public class WinOrLose2 {
 
         // Start the next loop
         return 1 + calculateLoop(ar, start, index - 1);
-    }
+    }*/
 
     /**
      * Decide if the first one wins or loses
