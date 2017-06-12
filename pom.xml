@@ -24,5 +24,6 @@
         <module>HelloSpringBoot</module>
         <module>HelloSpringMvc</module>
         <module>HelloXml</module>
+        <module>HelloCodeM</module>
     </modules>
 </project>
