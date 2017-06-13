@@ -3,7 +3,9 @@ package com.hello;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,9 +23,14 @@ public class CouponTest {
         }};
 
         for (Map.Entry<String[], Long> io : mapIO.entrySet()) {
+            List<String> ar = new ArrayList<String>();
+            for (String str : io.getKey()) {
+                ar.add(str);
+            }
+
             Assert.assertEquals(
                     io.getValue().longValue(),
-                    Coupon.findValidLogs(io.getKey())
+                    Coupon.findValidLogs(ar)
             );
         }
     }

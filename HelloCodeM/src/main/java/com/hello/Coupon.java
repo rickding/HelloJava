@@ -18,15 +18,13 @@ public class Coupon {
                 ar.add(sc.next());
             }
 
-            String[] logs = new String[ar.size()];
-            logs = ar.toArray(logs);
-            System.out.println(findValidLogs(logs));
+            System.out.println(findValidLogs(ar));
         }
 
     }
 
-    public static long findValidLogs(String[] logs) {
-        if (logs == null || logs.length <= 0) {
+    public static long findValidLogs(List<String> logs) {
+        if (logs == null || logs.size() <= 0) {
             return -1;
         }
 
@@ -90,7 +88,7 @@ public class Coupon {
             }
         }
 
-        if (index >= logs.length && freeErrors >= 0) {
+        if (index >= logs.size() && freeErrors >= 0) {
             index = -1;
         }
 
