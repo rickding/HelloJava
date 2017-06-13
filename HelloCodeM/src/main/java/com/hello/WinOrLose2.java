@@ -1,10 +1,6 @@
 package com.hello;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by user on 2017/6/11.
@@ -16,43 +12,45 @@ public class WinOrLose2 {
         Scanner sc = new Scanner(System.in);
 
         long n = sc.nextLong();
-        ArrayList<Long> ar = new ArrayList<Long>(1024);
+        List<Long> ar = new ArrayList<Long>(1024);
 
+        // Scan the scores.
         while (n-- > 0 && sc.hasNextLong()) {
             ar.add(sc.nextLong());
         }
 
         sc.close();
 
+        // Calculate the loops
         System.out.println(calculateLoop(ar));
     }
 
     /**
-     * Check how far the first person can go, the scope is [start, end]
+     * Check how far the first person can go
+     *
      * @param ar
      * @return
      */
-    public static int calculateLoop(ArrayList<Long> ar) {
+    public static int calculateLoop(List<Long> ar) {
         int n = ar.size();
         if (n <= 1 || (n & (n - 1)) != 0) {
             return 0;
         }
 
-        // Scan the scores and find the first winner compared with the first one
+        // Compare the first score and find loops with the left ones.
         Iterator<Long> iterator = ar.iterator();
         long score = iterator.next();
-        BigInteger index = BigInteger.ZERO;
-        BigInteger mark = BigInteger.ONE;
+        long index = 0;
+        long mark = 1;
         int loop = 0;
 
         while (iterator.hasNext()) {
             if (winOrLose(score, iterator.next()) == 1) {
-                index = index.add(BigInteger.ONE);
+                index++;
 
-                int tmp = index.compareTo(mark);
-                if (tmp >= 0) {
+                if (index >= mark) {
                     // Start the next loop
-                    mark = mark.multiply(new BigInteger("2"));
+                    mark *= 2;
                     loop++;
                 }
             } else {
@@ -62,6 +60,12 @@ public class WinOrLose2 {
 
         return loop;
     }
+
+    /**
+     * Check how far the first person can go, the scope is [start, end]
+     * @param ar
+     * @return
+     */
     /*
     public static int calculateLoop(ArrayList<Long> ar, int start, int end) {
         int n = end - start + 1;
@@ -89,6 +93,7 @@ public class WinOrLose2 {
 
     /**
      * Decide if the first one wins or loses
+     *
      * @param first
      * @param second
      * @return

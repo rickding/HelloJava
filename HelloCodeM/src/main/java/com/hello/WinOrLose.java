@@ -1,7 +1,5 @@
 package com.hello;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,23 +12,22 @@ public class WinOrLose {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        BigInteger n = sc.nextBigInteger();
+        long n = sc.nextLong();
 
-        // Scan the scores and find the first winner compared with the first one
+        // Scan the first score and find loops with the left ones.
         long score = sc.nextLong();
 
-        BigInteger index = BigInteger.ZERO;
-        BigInteger mark = BigInteger.ONE;
+        // Calculate the loops
+        long index = 0;
+        long mark = 1;
         int loop = 0;
 
-        while (sc.hasNext()) {
+        while (n-- > 0 && sc.hasNextLine()) {
             if (winOrLose(score, sc.nextLong()) == 1) {
-                index = index.add(BigInteger.ONE);
-
-                int tmp = index.compareTo(mark);
-                if (tmp >= 0) {
+                index++;
+                if (index >= mark) {
                     // Start the next loop
-                    mark = mark.multiply(new BigInteger("2"));
+                    mark *= 2;
                     loop++;
                 }
             } else {
@@ -40,7 +37,6 @@ public class WinOrLose {
 
         sc.close();
 
-        // Calculate the loops
         System.out.println(loop);
     }
 
