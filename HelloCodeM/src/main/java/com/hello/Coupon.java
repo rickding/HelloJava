@@ -9,18 +9,21 @@ public class Coupon {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        List<String> ar = new ArrayList<String>(1024);
         while (sc.hasNext()) {
             long n = sc.nextLong();
-            List<String> ar = new ArrayList<String>(1024);
+            ar.clear();
 
             // Scan the input values
             while (n-- > 0 && sc.hasNext()) {
                 ar.add(sc.next());
             }
 
+            // Check
             System.out.println(findValidLogs(ar));
         }
 
+        sc.close();
     }
 
     public static long findValidLogs(List<String> logs) {
@@ -43,10 +46,11 @@ public class Coupon {
 
             // Wrong value
             String[] values = log.split(" ");
-            if (values == null) {
+            if (values == null || values.length <= 0) {
                 break;
             }
 
+            // Free error?
             if (values.length == 1) {
                 if ("?".equals(values[0])) {
                     freeErrors++;
@@ -68,22 +72,18 @@ public class Coupon {
             }
 
             if (map.containsKey(key)) {
-                // If coupon exists, but it's I, then it's wrong.
-                if ("i".equalsIgnoreCase(value)) {
-                    if (freeErrors-- <= 0) {
-                        break;
-                    }
-                } else {
+                // If coupon exists, but it's not o, then it's wrong.
+                if ("o".equalsIgnoreCase(value)) {
                     map.remove(key);
+                } else if (freeErrors-- <= 0) {
+                    break;
                 }
             } else {
-                // If coupon doesn't exist, but it's O, then it's wrong.
-                if ("o".equalsIgnoreCase(value)) {
-                    if (freeErrors-- <= 0) {
-                        break;
-                    }
-                } else {
+                // If coupon doesn't exist, but it's not i, then it's wrong.
+                if ("i".equalsIgnoreCase(value)) {
                     map.put(key, value);
+                } else if (freeErrors-- <= 0) {
+                    break;
                 }
             }
         }
