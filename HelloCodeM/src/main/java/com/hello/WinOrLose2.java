@@ -58,6 +58,10 @@ public class WinOrLose2 {
             }
         }
 
+        if (loop <= 0 && ((double)score / ar.get(1) > 0)) {
+            loop++; // At least 1 loop when loses immediately, only if their scores are same type.
+        }
+
         return loop;
     }
 

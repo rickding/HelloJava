@@ -26,6 +26,14 @@ public class Coupon {
         sc.close();
     }
 
+    /**
+     * Scan and check the logs:
+     * I x （I为Input的缩写，表示购买优惠券x）；
+     * O x（O为Output的缩写，表示使用优惠券x）；
+     * ? （表示这条记录不知道）。
+     * @param logs
+     * @return
+     */
     public static long findValidLogs(List<String> logs) {
         if (logs == null || logs.size() <= 0) {
             return -1;
