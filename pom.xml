@@ -25,5 +25,6 @@
         <module>HelloSpringMvc</module>
         <module>HelloXml</module>
         <module>HelloCodeM</module>
+        <module>HelloHackerRank</module>
     </modules>
 </project>
