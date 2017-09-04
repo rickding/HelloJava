@@ -20,6 +20,9 @@ public class CouponTest {
             put(new String[]{"?", "o 1"}, -1L);
             put(new String[]{"I 1", "?", "O 1"}, -1L);
             put(new String[]{"i 2", "o 1"}, 2L);
+
+            // from new coder
+            put(new String[]{"?", "O 1", "?", "O 2"}, -1L);
         }};
 
         for (Map.Entry<String[], Long> io : mapIO.entrySet()) {

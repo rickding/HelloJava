@@ -3,12 +3,10 @@ package com.hello;
 import java.util.Scanner;
 
 /**
- * Hello world!
+ * Minimum difference
  */
 public class MinDifference {
     public static void main(String[] args) {
-        System.out.println("Hello CodeM!");
-
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
@@ -29,7 +27,7 @@ public class MinDifference {
     }
 
     /**
-     * Find the minimum difference
+     * Find the minimum difference: = SUM(a[i] - b[i])2 (1 ≤ i ≤ n)
      * @param arA
      * @param n
      * @param arB
@@ -53,6 +51,10 @@ public class MinDifference {
             // Compare
             if (minDiff > diff) {
                 minDiff = diff;
+            }
+
+            if (minDiff == 0) {
+                break;
             }
         }
 
