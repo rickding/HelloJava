@@ -84,6 +84,10 @@ public class App {
             user.setName(user.getName() + "i");
             mapper.insertUser(user);
             session.commit();
+
+            user.setName(user.getName() + "i");
+            mapper.insertUser(user);
+            session.commit();
             System.out.println("Count user by gender: " + String.valueOf(mapper.countUserByGenderReturnResultMap()));
 
             user.setGender((user.getGender() + 1) % 2);
