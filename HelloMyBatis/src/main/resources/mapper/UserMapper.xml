@@ -25,7 +25,7 @@
 	</select>
 	
 	<insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
-		insert into Users(name, gender)
+		insert into users(name, gender)
 		values (#{name}, #{gender})
 	</insert>
 	
@@ -37,13 +37,13 @@
 	</insert>
 	
 	<update id="updateUser">
-		update Users set
+		update users set
 		    name = #{name},
 		    gender = #{gender}
 		where id = #{id}
 	</update>
 	
 	<delete id="deleteUser">
-		delete from Users where id = #{id}
+		delete from users where id = #{id}
 	</delete>
 </mapper>

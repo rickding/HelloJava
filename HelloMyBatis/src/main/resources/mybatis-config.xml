@@ -9,9 +9,9 @@
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver" />
 				<property name="url"
-					value="jdbc:mysql://localhost:3306/hellomybatis?serverTimezone=UTC" />
-				<property name="username" value="root" />
-				<property name="password" value="root" />
+					value="jdbc:mysql://192.168.1.140:3306/hellomybatis?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC" />
+				<property name="username" value="tester" />
+				<property name="password" value="tester" />
 			</dataSource>
 		</environment>
 	</environments>

@@ -1,0 +1,53 @@
+drop database if exists rms;
+create database if not exists rms;
+
+
+https://flywaydb.org/
+https://flywaydb.org/documentation/migration/java
+
+
+Spring:
+- mvn pom.xml:
+<dependency>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-core</artifactId>
+    <version>4.2.0</version>
+</dependency>
+
+- Spring:
+<bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate" depends-on="dataSourceWrite">
+    <property name="dataSource" ref="dataSourceWrite"/>
+    <!--<property name="schemas" value="saas"/>-->
+    <!--<property name="encoding" value="UTF-8"/>-->
+    <!--<property name="locations" value="classpath:db.migration"/>-->
+</bean>
+
+- depends-on="flyway":
+<!-- The rest of the application (incl. Hibernate) -->
+<!-- Must be run after Flyway to ensure the database is compatible with the code -->
+<bean id="sessionFactory" class="..." depends-on="flyway">
+    ...
+</bean>
+
+
+- properties: validationQuery: select 1 from dual
+<property name="validationQuery">
+    <value>${jdbc.read.validationQuery}</value>
+</property>
+
+
+- sql:
+resources/db/migration/V1.0.1__initial.sql
+
+- java:
+java/db.migration/V1.0.1__initial.java
+
+- Test and debug:
+java/.../FlywayMigration.java
+
+
+- Flyway: conf/flyway.conf:
+flyway.url=jdbc:mysql://test.db.demosaas.odianyun.local:3306/rms?useUnicode=true&characterEncoding=utf-8
+flyway.user=developer
+flyway.password=ody@2017
+flyway.locations=filesystem:.\migration
