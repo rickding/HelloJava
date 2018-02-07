@@ -22,7 +22,11 @@ public class NumberOfPairs {
                 if (m + n < k) {
                     break;
                 } else if (m + n == k) {
-                    pairMap.put(m, n);
+                    if (m < n) {
+                        pairMap.put(m, n);
+                    } else {
+                        pairMap.put(n, m);
+                    }
                 }
             }
         }
