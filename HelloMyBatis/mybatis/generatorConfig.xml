@@ -10,7 +10,7 @@
 
 <generatorConfiguration>
     <classPathEntry location="mysql-connector-java-5.1.29.jar" />
-    
+
     <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
