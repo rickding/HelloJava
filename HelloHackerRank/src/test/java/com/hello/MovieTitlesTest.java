@@ -4,10 +4,10 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class MovieTtitlesTest {
+public class MovieTitlesTest {
     @Test
-    public void testMovieTtitles() {
-        final String[] ret = MovieTtitles.getMovieTitles("spiderman");
+    public void testMovieTitles() {
+        final String[] ret = MovieTitles.getMovieTitles("spiderman");
         System.out.println(Arrays.asList(ret).toString());
     }
 }

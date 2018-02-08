@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MovieTtitles {
+public class MovieTitles {
     public static String[] getMovieTitles(String substr) {
         if (substr == null || substr.trim().length() <= 0) {
             return null;
@@ -20,7 +20,7 @@ public class MovieTtitles {
 
         // Initialize
         int page = 1;
-        final String url = "https://jsonmock.hackerrank.com/api/movies/search/?Ttitle=%s&page=%d";
+        final String url = "https://jsonmock.hackerrank.com/api/movies/search/?Title=%s&page=%d";
         Gson gson = new Gson();
         List<String> movies = new ArrayList<String>();
 
