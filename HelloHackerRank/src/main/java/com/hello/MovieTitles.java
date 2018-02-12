@@ -25,7 +25,7 @@ public class MovieTitles {
         List<String> movies = new ArrayList<String>();
 
         while (true) {
-            // Get response
+            // Get response from http request
             String response = null;
             try {
                 response = httpGet(String.format(url, substr, page));
@@ -49,6 +49,7 @@ public class MovieTitles {
                 movies.add(movie.Title);
             }
 
+            // Next page
             if (page < moviePage.total_pages) {
                 page++;
             } else {
@@ -56,7 +57,7 @@ public class MovieTitles {
             }
         }
 
-        // Return the titles
+        // Sort and return the titles
         String[] titles = new String[movies.size()];
         movies.toArray(titles);
         Arrays.sort(titles);
