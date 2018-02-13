@@ -17,10 +17,45 @@ public class ZombieCluster {
         }
 
         // Find and mark the connections
-        for (int i = 0; i < len; i++) {
+        markCluster(zombieMatric, len, 0);
 
+        // Count the lead zombies, which show the clusters
+        int count = 0;
+        for (int i = 0; i < len; i++) {
+            if (zombieMatric[i][i]) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * Mark the connected zombies
+     * @param zombieMatric
+     * @param n
+     * @param index
+     */
+    static void markCluster(boolean[][] zombieMatric, int n, int index) {
+        if (zombieMatric == null || n <= 0 || index < 0 || index >= n) {
+            return;
         }
 
-        return 0;
+        // Find and mark the connections
+        for (int i = index; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (j == i) {
+                    continue;
+                }
+
+                if (zombieMatric[i][j]) {
+                    zombieMatric[i][j] = false;
+                    zombieMatric[j][i] = false;
+                    zombieMatric[j][j] = false;
+
+                    // Continue to connect
+                    markCluster(zombieMatric, n, j);
+                }
+            }
+        }
     }
 }

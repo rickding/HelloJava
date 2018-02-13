@@ -12,6 +12,11 @@ public class PalindromeTest {
         Map<String, Integer> mapIO = new HashMap<String, Integer>(){{
             put("acdapmpomp", 15);
             put("axbawbaseksqke", 25);
+
+            put("aa", 1);
+            put("ab", 1);
+            put("abb", 2);
+            put("aab", 2);
         }};
 
         for (Map.Entry<String, Integer> io : mapIO.entrySet()) {
