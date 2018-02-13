@@ -18,6 +18,7 @@ public class Arbitrage {
                 for (int j = 0; j < prices.length; j++) {
                     dollar /= prices[j];
                 }
+
                 profit = (int) dollar - 100000;
                 if (profit < 0) {
                     profit = 0;

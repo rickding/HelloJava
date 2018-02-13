@@ -27,22 +27,22 @@ public class ElectionWinner {
         }
 
         // Get the candidates with max count votes
-        List<String> candidates = new ArrayList<String>();
+        List<String> candidateList = new ArrayList<String>();
         for (Map.Entry<String, Integer> voteCount : voteCountMap.entrySet()) {
             if (voteCount.getValue() == maxCount) {
-                candidates.add(voteCount.getKey());
+                candidateList.add(voteCount.getKey());
             }
         }
 
-        if (candidates.size() <= 0) {
+        if (candidateList.size() <= 0) {
             return null;
-        } else if (candidates.size() == 1) {
-            return candidates.get(0);
+        } else if (candidateList.size() == 1) {
+            return candidateList.get(0);
         }
 
         // Sort alphabetically and get the last one
-        String[] candidatesArr = new String[candidates.size()];
-        candidates.toArray(candidatesArr);
+        String[] candidatesArr = new String[candidateList.size()];
+        candidateList.toArray(candidatesArr);
         Arrays.sort(candidatesArr);
         return candidatesArr[candidatesArr.length - 1];
     }

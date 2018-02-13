@@ -46,7 +46,7 @@ public class FindMax {
         return findMax(sumArr, 0);
     }
 
-    public static long findMax(Long[] sumArr, int startIndex) {
+    static long findMax(Long[] sumArr, int startIndex) {
         if (sumArr == null || sumArr.length <= startIndex || startIndex < 0) {
             return 0;
         }
