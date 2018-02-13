@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FindMaxTest {
+public class PortfolioTest {
     @Test
     public void testFindMax() {
         Map<String, int[]> mapIO = new HashMap<String, int[]>() {{
@@ -15,7 +15,7 @@ public class FindMaxTest {
         }};
 
         for (Map.Entry<String, int[]> io : mapIO.entrySet()) {
-            long ret = FindMax.findMax(io.getValue()[0], io.getKey());
+            long ret = Portfolio.findMax(io.getValue()[0], io.getKey());
             Assert.assertEquals((long)(io.getValue()[1]), ret);
         }
 

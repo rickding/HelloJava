@@ -3,7 +3,7 @@ package com.hello;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindMax {
+public class Portfolio {
     public static long findMax(int n, String tree) {
         if (n <= 0 || tree == null || tree.trim().length() <= 0) {
             return 0;
