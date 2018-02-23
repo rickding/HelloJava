@@ -38,7 +38,7 @@ public class BestHotel {
     }
 
     public static class HotelComparator implements Comparator<Hotel> {
-        @Override
+//        @Override
         public int compare(Hotel o1, Hotel o2) {
             int ret = ((Double)o2.getAverageScore()).compareTo(o1.getAverageScore());
             if (ret == 0) {
