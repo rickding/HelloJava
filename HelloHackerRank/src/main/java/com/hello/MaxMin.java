@@ -6,29 +6,24 @@ public class MaxMin {
             return null;
         }
 
-        long[] product = new long[operations.length];
-
+        long[] products = new long[operations.length];
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
 
         int[] arr = new int[operations.length];
         int index = 0;
-
         for (int i = 0; i < operations.length; i++) {
             String op = operations[i];
             int v = values[i];
 
             if ("push".equalsIgnoreCase(op)) {
                 // Push
-                if (max != v && min != v) {
-                    arr[index++] = v;
-                }
+                arr[index++] = v;
 
-                // Find the new ones
+                // Compare the new value
                 if (max < v) {
                     max = v;
                 }
-
                 if (min > v) {
                     min = v;
                 }
@@ -48,8 +43,7 @@ public class MaxMin {
                 if (max == v || min == v) {
                     max = Integer.MIN_VALUE;
                     min = Integer.MAX_VALUE;
-
-                    for (int j = 0; j < index; j++) {
+                    for (int j = 0; j <= index; j++) {
                         v = arr[j];
                         if (max < v) {
                             max = v;
@@ -59,13 +53,9 @@ public class MaxMin {
                         }
                     }
                 }
-            } else {
-                continue;
             }
-
-            product[i] = max * min;
+            products[i] = max * min;
         }
-
-        return product;
+        return products;
     }
 }
