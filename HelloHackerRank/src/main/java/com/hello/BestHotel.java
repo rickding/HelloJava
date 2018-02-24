@@ -11,6 +11,33 @@ public class BestHotel {
         best_hotels();
     }
 
+    static void best_hotels() {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
+
+        HashMap<Long, Hotel> idScoresMap = new HashMap<Long, Hotel>();
+        while (n-- > 0) {
+            long id = sc.nextLong();
+            int score = sc.nextInt();
+
+            Hotel scores = idScoresMap.get(id);
+            if (scores == null) {
+                scores = new Hotel(id);
+                idScoresMap.put(id, scores);
+            }
+            scores.addScore(score);
+        }
+        sc.close();
+
+        Hotel[] hotels = new Hotel[idScoresMap.size()];
+        idScoresMap.values().toArray(hotels);
+        Arrays.sort(hotels, new HotelComparator());
+
+        for (Hotel hotel : hotels) {
+            System.out.println(hotel.getId());
+        }
+    }
+
     private static class Hotel {
         private long id = 0;
         private ArrayList<Integer> scoreList = new ArrayList<Integer>();
@@ -45,34 +72,6 @@ public class BestHotel {
                 ret = (int) (o1.getId() - o2.getId());
             }
             return ret;
-        }
-    }
-
-    static void best_hotels() {
-        Scanner sc = new Scanner(System.in);
-        long n = sc.nextLong();
-
-        HashMap<Long, Hotel> idScoresMap = new HashMap<Long, Hotel>();
-        while (n-- > 0) {
-            long id = sc.nextLong();
-            int score = sc.nextInt();
-
-            Hotel scores = idScoresMap.get(id);
-            if (scores == null) {
-                scores = new Hotel(id);
-                idScoresMap.put(id, scores);
-            }
-
-            scores.addScore(score);
-        }
-        sc.close();
-
-        Hotel[] hotels = new Hotel[idScoresMap.size()];
-        idScoresMap.values().toArray(hotels);
-        Arrays.sort(hotels, new HotelComparator());
-
-        for (Hotel hotel : hotels) {
-            System.out.println(hotel.getId());
         }
     }
 }
