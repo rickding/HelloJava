@@ -58,10 +58,14 @@ public class App {
             }
         });
 
+        // Add list
+        Box verticalBox = Box.createVerticalBox();
+        verticalBox.add(label);
+        verticalBox.add(btn);
+
         // Add to panel
         JPanel panel = new JPanel();
-        panel.add(label);
-        panel.add(btn);
+        panel.add(verticalBox);
 
         // Show panel in dialog
         dialog.setContentPane(panel);
