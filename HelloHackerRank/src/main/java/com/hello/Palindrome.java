@@ -5,6 +5,23 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Palindrome {
+    public static boolean isPalindrome(String str) {
+        if (str == null || str.length() <= 0) {
+            return false;
+        }
+        if (str.length() == 1) {
+            return true;
+        }
+
+        // Match the beginning char and ending one
+        for (int i = 0; i < str.length() / 2; i++) {
+            if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     static int getScore(String s) {
         if (s == null || s.trim().length() <= 1) {
             return 0;
