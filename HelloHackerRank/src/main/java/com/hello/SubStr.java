@@ -2,12 +2,12 @@ package com.hello;
 
 public class SubStr {
     public static String[] splitTokens(String str) {
-        if (str == null || str.length() <= 0) {
+        if (str == null || str.trim().length() <= 0) {
             return null;
         }
 
         // token: one or more consecutive English alphabetic letters
-        String[] strArr = str.split("[ !,?._'@]+");
+        String[] strArr = str.trim().split("[ !,?._'@]+");
         return strArr;
     }
 

@@ -11,6 +11,7 @@ public class SubStrTest {
     public void testSplitTokens() {
         Map<String, Integer> mapIO = new HashMap<String, Integer>() {{
             put("He is a very very good boy, isn't he?", 10);
+            put("           YES      leading spaces        are valid,    problemsetters are         evillllll", 8);
         }};
 
         for (Map.Entry<String, Integer> io : mapIO.entrySet()) {
