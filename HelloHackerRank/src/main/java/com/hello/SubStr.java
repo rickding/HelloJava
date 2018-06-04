@@ -1,6 +1,16 @@
 package com.hello;
 
 public class SubStr {
+    public static String[] splitTokens(String str) {
+        if (str == null || str.length() <= 0) {
+            return null;
+        }
+
+        // token: one or more consecutive English alphabetic letters
+        String[] strArr = str.split("[ !,?._'@]+");
+        return strArr;
+    }
+
     public static String getSmallestAndLargest(String str, int k) {
         if (str == null || str.length() < k || k <= 0) {
             return "\n";
