@@ -27,5 +27,6 @@
         <module>HelloCodeM</module>
         <module>HelloHackerRank</module>
         <module>HelloDialog</module>
+        <module>HelloAop</module>
     </modules>
 </project>
