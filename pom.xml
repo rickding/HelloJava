@@ -28,5 +28,6 @@
         <module>HelloHackerRank</module>
         <module>HelloDialog</module>
         <module>HelloAop</module>
+        <module>HelloThread</module>
     </modules>
 </project>
