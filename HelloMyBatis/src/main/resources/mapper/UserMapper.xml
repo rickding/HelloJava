@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hello.mapper.UserMapper">
+	<cache/>
 	<resultMap id="userCountMap" type="com.hello.model.UserCount">
 		<id column="gender" property="gender" />
 		<result column="count_map" property="count" />
