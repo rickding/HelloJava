@@ -5,7 +5,7 @@ package com.hello;
  */
 public class App {
     public static void main(String[] args) {
-        StudentInfoService infoService = (StudentInfoService) AopFactory.getAopProxyedObject("com.hello.StudentInfoServiceImpl");
-        infoService.findInfo("Jonn from app.main");
+        AopService service = (AopService) AopFactory.getAopProxyedObject("com.hello.AopServiceImpl");
+        service.findInfo("Jonn from app.main");
     }
 }

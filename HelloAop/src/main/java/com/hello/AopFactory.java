@@ -16,7 +16,7 @@ public class AopFactory {
 
     public static Object getAopProxyedObject(String clzName) {
         Object proxy = null;
-        MyHandler handler = new MyHandler();
+        AopHandler handler = new AopHandler();
         Object obj = getClassInst(clzName);
         if (obj != null) {
             proxy = handler.bind(obj);

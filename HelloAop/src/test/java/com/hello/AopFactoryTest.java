@@ -5,7 +5,7 @@ import org.junit.Test;
 public class AopFactoryTest {
     @Test
     public void testGetAopProxyedObject() {
-        StudentInfoService infoService = (StudentInfoService) AopFactory.getAopProxyedObject("com.hello.StudentInfoServiceImpl");
-        infoService.findInfo("Jonn from test");
+        AopService service = (AopService) AopFactory.getAopProxyedObject("com.hello.AopServiceImpl");
+        service.findInfo("Jonn from test");
     }
 }

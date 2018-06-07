@@ -1,5 +1,5 @@
 package com.hello;
 
-public interface StudentInfoService {
+public interface AopService {
     void findInfo(String name);
 }

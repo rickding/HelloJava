@@ -6,9 +6,9 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class MyHandler implements InvocationHandler {
+public class AopHandler implements InvocationHandler {
     private Object proxyObj;
-    private static Logger log = Logger.getLogger(MyHandler.class);
+    private static Logger log = Logger.getLogger(AopHandler.class);
 
     public Object bind(Object obj) {
         this.proxyObj = obj;
@@ -18,7 +18,7 @@ public class MyHandler implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object ret = null;
         try {
-            System.out.println("Call log: " + method.getName());
+            System.out.println("Invoke method: " + method.getName());
             ret = method.invoke(proxyObj, args);
         } catch (Exception e) {
             e.printStackTrace();
