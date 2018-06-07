@@ -16,13 +16,8 @@ public class AopHandler implements InvocationHandler {
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        Object ret = null;
-        try {
-            System.out.println("Invoke method: " + method.getName());
-            ret = method.invoke(proxyObj, args);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        System.err.println("Invoke method: " + method.getName());
+        Object ret = method.invoke(proxyObj, args);
         return ret;
     }
 }
