@@ -4,6 +4,6 @@ import com.hello.model.Farm;
 
 import java.util.List;
 
-public interface Service {
+public interface DBService {
     List<Farm> selectFarm(String code);
 }

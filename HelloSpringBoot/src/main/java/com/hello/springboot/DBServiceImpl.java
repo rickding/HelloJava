@@ -3,11 +3,12 @@ package com.hello.springboot;
 import com.hello.mapper.FarmMapper;
 import com.hello.model.Farm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@org.springframework.stereotype.Service(value="service")
-public class ServiceImpl implements Service {
+@Service(value="dbService")
+public class DBServiceImpl implements DBService {
     @Autowired
     private FarmMapper farmMapper;
 

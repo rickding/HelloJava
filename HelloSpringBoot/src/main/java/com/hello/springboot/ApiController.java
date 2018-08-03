@@ -1,19 +1,20 @@
 package com.hello.springboot;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@org.springframework.stereotype.Controller
+@Controller
 @RequestMapping(value = "/")
-public class Controller {
+public class ApiController {
     @Autowired
-    private Service service;
+    private DBService dbService;
 
     @ResponseBody
-    @RequestMapping(value = "/chk/{code}", produces = {"application/json;charset=UTF-8"})
-    public Object chk(@PathVariable("code") String code) {
-        return service.selectFarm(code);
+    @RequestMapping(value = "/chk", produces = {"application/json;charset=UTF-8"})
+    public Object chk() {
+        return dbService.selectFarm("chk");
     }
 }
