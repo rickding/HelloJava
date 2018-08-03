@@ -29,6 +29,6 @@
         <module>HelloDialog</module>
         <module>HelloAop</module>
         <module>HelloThread</module>
-        <module>HelloInst</module>
+        <module>HelloSingleton</module>
     </modules>
 </project>

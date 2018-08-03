@@ -3,12 +3,13 @@ package com.hello.springboot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * Created by user on 2017/5/28.
- */
 @SpringBootApplication
-public class HelloApplication {
+public class HelloSpringBootApplication {
+    /**
+     * https://blog.csdn.net/winter_chen001/article/details/77249029
+     * @param args
+     */
     public static void main(String[] args) {
-        SpringApplication.run(HelloApplication.class, args);
+        SpringApplication.run(HelloSpringBootApplication.class, args);
     }
 }
