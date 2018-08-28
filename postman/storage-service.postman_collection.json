@@ -1,0 +1,129 @@
+{
+	"variables": [],
+	"info": {
+		"name": "storage-service",
+		"_postman_id": "8b98e39e-e1d4-67dc-855a-223969dd9337",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{server}}:{{port}}/api/upload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"// Valid data",
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.code && jsonData.code < 0) {",
+							"    tests[\"msg\"] = jsonData.msg.has(\"invalid\");",
+							"} else {",
+							"    tests[\"msg\"] = jsonData.msg == \"ok\";",
+							"}",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{server}}:{{port}}/api/upload",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"description": ""
+					},
+					{
+						"key": "access_token",
+						"value": "{{access_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"description": "",
+							"type": "file",
+							"src": "storage-service.postman_collection.json"
+						},
+						{
+							"key": "file",
+							"description": "",
+							"type": "file",
+							"src": "globals.postman_globals.json"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "{{server}}:{{port}}/api/upload/multi",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"// Valid data",
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.code && jsonData.code < 0) {",
+							"    tests[\"msg\"] = jsonData.msg.has(\"invalid\");",
+							"} else {",
+							"    tests[\"msg\"] = jsonData.msg == \"ok\";",
+							"}",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{server}}:{{port}}/api/upload/multi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "{{content_type}}",
+						"description": ""
+					},
+					{
+						"key": "access_token",
+						"value": "{{access_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"description": "",
+							"type": "file",
+							"src": "localhost_8011.postman_environment.json"
+						},
+						{
+							"key": "extraField",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "files",
+							"description": "",
+							"type": "file",
+							"src": "localhost_8022.postman_environment.json"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
