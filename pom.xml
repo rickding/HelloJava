@@ -30,6 +30,6 @@
         <module>HelloAop</module>
         <module>HelloThread</module>
         <module>HelloSingleton</module>
-        <module>upload</module>
+        <module>HelloUpload</module>
     </modules>
 </project>

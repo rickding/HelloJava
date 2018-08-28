@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 @RequestMapping("api/")
 public class RestUploadController {
     private final Logger logger = LoggerFactory.getLogger(RestUploadController.class);
-    private static String UPLOADED_FOLDER = "C://temp//";
+    public static final String UPLOADED_FOLDER = "C://temp//";
 
     @PostMapping("/upload")
     public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile uploadFile) {
