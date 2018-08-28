@@ -15,7 +15,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+// https://www.cnblogs.com/ityouknow/p/8298344.html
+@EnableAutoConfiguration
 @Controller
+@RequestMapping("/")
 public class UploadController {
     private static final String UPLOADER_FOLDER = "upload/";
 
@@ -25,7 +28,7 @@ public class UploadController {
     }
 
     @PostMapping("/upload")
-    public String upload(@RequestParam("file")MultipartFile file, RedirectAttributes redirectAttributes) {
+    public String upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
             return "redirect:uploadStatus";
