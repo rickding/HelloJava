@@ -8,9 +8,9 @@ import java.util.Map;
 
 @Controller
 public class WebCustomerController extends WebController{
-//    @RequestMapping("/")
-//    public String index(Map<String, Object> dataMap) {
-//        dataMap.put("str", "WebCustomerController.index");
-//        return "/index";
-//    }
+    @RequestMapping("/con_customer")
+    public String con_customer(Map<String, Object> dataMap) {
+        dataMap.put("str", "WebCustomerController.con_customer");
+        return "/con_customer";
+    }
 }
