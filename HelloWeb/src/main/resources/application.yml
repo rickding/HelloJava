@@ -1,2 +1,6 @@
 server:
   port: 8011
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
