@@ -31,5 +31,6 @@
         <module>HelloThread</module>
         <module>HelloSingleton</module>
         <module>HelloUpload</module>
+        <module>HelloWeb</module>
     </modules>
 </project>
