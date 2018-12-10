@@ -7,9 +7,9 @@ import java.util.Map;
 
 @Controller
 public class WebController {
-    @RequestMapping("/")
-    public String index(Map<String, Object> dataMap) {
-        dataMap.put("str", "WebController.index");
-        return "/index";
+    @RequestMapping("/con")
+    public String con(Map<String, Object> dataMap) {
+        dataMap.put("str", "WebController.con");
+        return "/con";
     }
 }
