@@ -32,5 +32,6 @@
         <module>HelloSingleton</module>
         <module>HelloUpload</module>
         <module>HelloWeb</module>
+        <module>HelloWebCustomer</module>
     </modules>
 </project>
