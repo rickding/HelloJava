@@ -1,4 +1,4 @@
-package com.hello.web_customer;
+package com.hello.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

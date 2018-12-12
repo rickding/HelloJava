@@ -1,4 +1,4 @@
-package com.hello.web_customer;
+package com.hello.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
