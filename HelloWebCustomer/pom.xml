@@ -8,10 +8,12 @@
         <version>2.1.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.hello</groupId>
     <artifactId>web_customer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
+
     <name>HelloWebCustomer</name>
     <description>Customer web project for Spring Boot</description>
 

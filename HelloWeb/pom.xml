@@ -13,6 +13,7 @@
     <artifactId>web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
+
     <name>HelloWeb</name>
     <description>web project for Spring Boot</description>
 
