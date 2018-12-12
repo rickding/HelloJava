@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Map;
 
 @Controller
-public class WebController {
+public class WebCtrl {
     @RequestMapping("/ctrl")
     public String ctrl(Map<String, Object> dataMap) {
-        dataMap.put("str", "WebController.ctrl");
+        dataMap.put("str", "WebCtrl.ctrl");
         return "/ctrl";
     }
 }

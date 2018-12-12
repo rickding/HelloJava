@@ -1,16 +1,16 @@
 package com.hello.web.customer;
 
-import com.hello.web.WebController;
+import com.hello.web.WebCtrl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 
 @Controller
-public class WebCustomerController extends WebController {
+public class WebCustomerCtrl extends WebCtrl {
     @RequestMapping("/ctrl_customer")
     public String ctrl_customer(Map<String, Object> dataMap) {
-        dataMap.put("str", "WebCustomerController.ctrl_customer");
+        dataMap.put("str", "WebCustomerCtrl.ctrl_customer");
         return "/ctrl_customer";
     }
 }
