@@ -7,9 +7,9 @@ import java.util.Map;
 
 @Controller
 public class WebController {
-    @RequestMapping("/con")
-    public String con(Map<String, Object> dataMap) {
-        dataMap.put("str", "WebController.con");
-        return "/con";
+    @RequestMapping("/ctrl")
+    public String ctrl(Map<String, Object> dataMap) {
+        dataMap.put("str", "WebController.ctrl");
+        return "/ctrl";
     }
 }
