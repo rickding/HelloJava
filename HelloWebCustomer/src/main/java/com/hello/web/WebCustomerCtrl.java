@@ -13,7 +13,7 @@ public class WebCustomerCtrl {
 
     @RequestMapping("/ctrl_customer")
     public String ctrl_customer(Map<String, Object> dataMap) {
-        dataMap.put("str", "WebCustomerCtrl.ctrl_customer, " + webAction.action());
+        dataMap.put("str", this.getClass().getName() + ".ctrl_customer, " + webAction.action());
         return "/ctrl_customer";
     }
 }

@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class WebCustomerAction {
     public String action() {
-        return "webCustomerAction";
+        return this.getClass().getName() + ".action";
     }
 }
