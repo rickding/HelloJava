@@ -34,5 +34,6 @@
         <module>HelloWeb</module>
         <module>HelloWebCustomer</module>
         <module>HelloWar</module>
+        <module>HelloEar</module>
     </modules>
 </project>

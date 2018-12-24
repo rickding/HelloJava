@@ -9,11 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.hello</groupId>
     <artifactId>war</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-
     <name>HelloWar</name>
-    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
     <properties>
@@ -32,7 +32,6 @@
     </dependencies>
 
     <build>
-        <finalName>war</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
