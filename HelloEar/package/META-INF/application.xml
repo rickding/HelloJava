@@ -6,10 +6,6 @@
     <display-name>ear</display-name>
     <module>
         <web>
-            <web-uri>war-0.0.1-SNAPSHOT.war</web-uri>
-            <context-root>/war</context-root>
-        </web>
-        <web>
             <web-uri>ams.war</web-uri>
             <context-root>/ams</context-root>
         </web>
