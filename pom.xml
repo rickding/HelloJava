@@ -33,5 +33,6 @@
         <module>HelloUpload</module>
         <module>HelloWeb</module>
         <module>HelloWebCustomer</module>
+        <module>HelloWar</module>
     </modules>
 </project>
