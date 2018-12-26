@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Spring Boot Legacy WebLogic</name>
+    <name>HelloWebWar</name>
     <description>Demo project for deploying a Spring Boot to a legacy (10.3.5) weblogic environment using servlet 2.5
     </description>
 
