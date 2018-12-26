@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/")
-public class WebCtrl {
+public class WebController {
     @Autowired
     WebAction webAction;
 

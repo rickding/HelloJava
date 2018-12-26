@@ -1,9 +1,11 @@
 package com.hello.web;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
 
 //@SpringBootApplication
@@ -13,11 +15,13 @@ import org.springframework.web.WebApplicationInitializer;
 //    }
 //}
 
-@SpringBootApplication
+@EnableAutoConfiguration
+@Configuration
+@ComponentScan
 public class WebApplication extends SpringBootServletInitializer implements WebApplicationInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(WebApplication.class);
+        return builder.sources(WebApplication.class).showBanner(false);
     }
 
     public static void main(String[] args) {
