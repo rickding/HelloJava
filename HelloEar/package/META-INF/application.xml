@@ -6,6 +6,18 @@
     <display-name>ear</display-name>
     <module>
         <web>
+            <web-uri>war.war</web-uri>
+            <context-root>/war</context-root>
+        </web>
+    </module>
+    <module>
+        <web>
+            <web-uri>web.war</web-uri>
+            <context-root>/web</context-root>
+        </web>
+    </module>
+    <module>
+        <web>
             <web-uri>ams.war</web-uri>
             <context-root>/ams</context-root>
         </web>
