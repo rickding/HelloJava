@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.hello</groupId>
-        <artifactId>hello</artifactId>
+        <artifactId>java</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
