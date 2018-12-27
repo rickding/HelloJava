@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class ApiController {
     @RequestMapping("chk")
     public String chk() {
-        return "ok, prefer-web-inf-classes";
+        return "ok, prefer-web-inf-classes, 管理系统0.0.1";
     }
 }
