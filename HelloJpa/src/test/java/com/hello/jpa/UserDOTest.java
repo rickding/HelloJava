@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -28,7 +29,7 @@ public class UserDOTest {
         UserDO userDO = new UserDO();
 
         userDO.setId(count + 1);
-//        userDO.setName(String.format("n%d", userDO.getId()));
+        userDO.setName(String.format("n%d", userDO.getId()));
         userDO.setAccount(String.format("a%d", userDO.getId()));
         userDO.setPwd("123");
 
@@ -39,9 +40,9 @@ public class UserDOTest {
 
     @Test
     public void testFindById() {
-        Optional<UserDO> userDOOptional = userDao.findById(userDao.count());
-        if (userDOOptional.isPresent()) {
-            UserDO userDO = userDOOptional.get();
+        List<UserDO> userDOList = userDao.findAll();
+        if (userDOList != null && userDOList.size() > 0) {
+            UserDO userDO = userDOList.get(userDOList.size() - 1);
 
             log.info(userDO.toString());
             Assert.assertEquals(userDao.count(), userDO.getId().longValue());

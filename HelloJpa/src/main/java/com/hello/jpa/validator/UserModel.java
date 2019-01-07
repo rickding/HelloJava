@@ -1,6 +1,7 @@
 package com.hello.jpa.validator;
 
-import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.validation.constraints.Pattern;
 
 public class UserModel {
