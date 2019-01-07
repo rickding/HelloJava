@@ -1,4 +1,4 @@
-package com.hello.jpa.model;
+package com.hello.jpa.dao;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +19,11 @@ public class UserDO {
 
     @Column(length = 64)
     String pwd;
+
+    @Override
+    public String toString() {
+        return String.format("userDO: %d, %s, %s, %s", id, name, account, pwd);
+    }
 
     public Long getId() {
         return id;
