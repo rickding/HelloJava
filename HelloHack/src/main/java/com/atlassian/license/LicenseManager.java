@@ -184,7 +184,7 @@ public class LicenseManager
         licenseList.remove(applicationName);
     }
 
-    private static final com.atlassian.extras.common.log.Logger.Log log = Logger.getInstance(com/atlassian/license/LicenseManager);
+    private static final com.atlassian.extras.common.log.Logger.Log log = Logger.getInstance(LicenseManager.class);
     Map licenseList;
     Map licenseConfigurations;
     private static LicenseManager licenseManager;

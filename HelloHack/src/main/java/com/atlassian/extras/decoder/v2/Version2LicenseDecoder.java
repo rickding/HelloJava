@@ -137,14 +137,11 @@ public class Version2LicenseDecoder extends AbstractLicenseDecoder
                 props.put("Description", desc.replace("Evaluation", "Commercial"));
                 if(desc.contains("Confluence"))
                     props.put("conf.LicenseTypeName", "COMMERCIAL");
-                else
-                if(desc.contains("JIRA"))
+                else if(desc.contains("JIRA"))
                     props.put("jira.LicenseTypeName", "COMMERCIAL");
-                else
-                if(desc.contains("FishEye"))
+                else if(desc.contains("FishEye"))
                     props.put("fisheye.LicenseTypeName", "COMMERCIAL");
-                else
-                if(desc.contains("Bitbucket"))
+                else if(desc.contains("Bitbucket"))
                     props.put("stash.LicenseTypeName", "COMMERCIAL");
                 props.put("Evaluation", "false");
                 props.put("MaintenanceExpiryDate", "2033-06-06");

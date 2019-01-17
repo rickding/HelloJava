@@ -23,12 +23,13 @@ public class JPATraversableResolver
 
     public final boolean isReachable(Object traversableObject, javax.validation.Path.Node traversableProperty, Class rootBeanType, Path pathToTraversableObject, ElementType elementType)
     {
-        if(log.isTraceEnabled())
-            log.tracef("Calling isReachable on object %s with node name %s.", traversableObject, traversableProperty.getName());
-        if(traversableObject == null)
-            return true;
-        else
-            return Persistence.getPersistenceUtil().isLoaded(traversableObject, traversableProperty.getName());
+//        if(log.isTraceEnabled())
+//            log.tracef("Calling isReachable on object %s with node name %s.", traversableObject, traversableProperty.getName());
+//        if(traversableObject == null)
+//            return true;
+//        else
+//            return Persistence.getPersistenceUtil().isLoaded(traversableObject, traversableProperty.getName());
+        return true;
     }
 
     public final boolean isCascadable(Object traversableObject, javax.validation.Path.Node traversableProperty, Class rootBeanType, Path path, ElementType elementtype)

@@ -2,8 +2,8 @@
 
 cd ./lib
 
-rm com -rf
-mv ../target/classes/com ./
+rm com -rf; mv ../target/classes/com ./
+rm org -rf; mv ../target/classes/org ./
 
 # jira
 jar -uvf atlassian-extras-3.2.jar \
