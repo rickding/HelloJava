@@ -7,10 +7,8 @@
 4_compile.sh
 5_pack.sh
 
-# jira
-https://blog.csdn.net/huangdou0204/article/details/81667554
-
 # jira7.9.2
+https://blog.csdn.net/huangdou0204/article/details/81667554
 atlassian-extras-3.2.jar
 atlassian-universal-plugin-manager-plugin-2.22.9.jar
 
