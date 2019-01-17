@@ -35,5 +35,7 @@
         <module>HelloWebCustomer</module>
         <module>HelloWar</module>
         <module>HelloWebWar</module>
+        <module>HelloJpa</module>
+        <module>HelloHack</module>
     </modules>
 </project>
