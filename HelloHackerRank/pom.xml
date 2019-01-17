@@ -10,7 +10,7 @@
     <artifactId>hacker_rank</artifactId>
     <packaging>jar</packaging>
 
-    <name>HelloHackerRank</name>
+    <name>HackerRank</name>
     <url>http://maven.apache.org</url>
 
     <properties>
