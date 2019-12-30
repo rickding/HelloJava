@@ -14,6 +14,7 @@
     </properties>
 
     <modules>
+        <module>HelloAnnotation</module>
         <module>HelloHessian</module>
         <module>HelloJUnit</module>
         <module>HelloMyBatis</module>
