@@ -20,7 +20,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <springframework.version>4.2.2.RELEASE</springframework.version>
+        <springframework.version>5.2.2.RELEASE</springframework.version>
         <quartz.version>2.2.2</quartz.version>
     </properties>
 
