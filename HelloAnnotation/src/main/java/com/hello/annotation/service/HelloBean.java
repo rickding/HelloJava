@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
-@HelloAnnotation("Hello Bean!")
 @Component
 @Scope("prototype")
+@HelloAnnotation("Hello Bean!")
 public class HelloBean {
     @Value("#{systemProperties['os.name']}")
     String osName;
