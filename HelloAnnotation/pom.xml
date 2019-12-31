@@ -40,6 +40,18 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- Redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
+
+        <!-- DB -->
         <!--<dependency>-->
             <!--<groupId>org.flywaydb</groupId>-->
             <!--<artifactId>flyway-core</artifactId>-->
