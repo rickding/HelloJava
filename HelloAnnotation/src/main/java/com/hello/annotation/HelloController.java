@@ -7,14 +7,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+
 @RestController
 @RequestMapping("/")
 public class HelloController {
     @Autowired
     HelloBean helloBean;
 
+    @AccessLimited(count = 1)
     @RequestMapping(path="hello/{name}", method = {RequestMethod.GET, RequestMethod.POST})
-    public String hello(@PathVariable String name) {
-        return String.format("%s, %s", name, helloBean.sayHello());
+    public Object hello(@PathVariable String name, @ClientIP String ip) {
+        return new HashMap<String, Object>() {{
+            put("name", name);
+            put("ip", ip);
+            put("msg", helloBean.sayHello());
+        }};
     }
 }

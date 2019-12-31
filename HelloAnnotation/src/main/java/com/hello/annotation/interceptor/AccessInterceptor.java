@@ -39,10 +39,9 @@ public class AccessInterceptor implements HandlerInterceptor {
                 !accessLimited.session() ? "" : SessionUtil.getId(ReqUtil.getSession(request)),
                 request.getMethod(), request.getRequestURI()
         );
-        Long count = redisService.incr(key);
-
-        if (count == null || count <= accessLimited.count()) {
-            if (count != null && count == 1) {
+        long count = redisService.incr(key);
+        if (count <= accessLimited.count()) {
+            if (count == 1) {
                 redisService.expire(key, accessLimited.seconds());
             }
             return true;

@@ -12,8 +12,8 @@ public class HelloControllerTest {
 
     @Test
     public void testHello() {
-        String ret = helloController.hello("test");
-        Assertions.assertTrue(ret.startsWith("test"));
+        Object ret = helloController.hello("test", null);
+        Assertions.assertTrue(ret.toString().contains("test"));
 
         System.out.println(ret);
     }

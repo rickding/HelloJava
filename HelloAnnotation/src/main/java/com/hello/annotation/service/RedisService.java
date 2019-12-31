@@ -16,8 +16,9 @@ public class RedisService {
     @Resource(name = "stringRedisTemplate")
     ValueOperations<String, String> strValOps;
 
-    public Long incr(String key) {
-        return strValOps.increment(key, 1L);
+    public long incr(String key) {
+        Long ret = strValOps.increment(key, 1L);
+        return ret == null ? 0 : ret;
     }
 
     public Boolean expire(String key, long seconds) {
