@@ -26,8 +26,14 @@ public class HelloBean {
     }
 
     @Deprecated
-    @SuppressWarnings("unchecked")
     public String sayHello() {
         return "Hello world!";
+    }
+
+    @SuppressWarnings("all")
+    public long getValue() {
+        Long l = 1L;
+        l += 3;
+        return l;
     }
 }
