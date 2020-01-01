@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
-@RestController
 @ControllerAdvice
+@RestController
 public class ExceptionController {
     @ExceptionHandler(value = AccessLimitException.class)
-    public Object accessLimitExceptionHandler(HttpServletRequest req, AccessLimitException e) {
+    public Object accessLimitExceptionHandler(AccessLimitException e) {
         return RespUtil.resp(-100, e.getMessage());
     }
 
     @ExceptionHandler(value = Exception.class)
-    public Object exceptionHandler(HttpServletRequest req, Exception e) {
+    public Object exceptionHandler(Exception e) {
         return RespUtil.resp(-1, e.getMessage());
     }
 }
