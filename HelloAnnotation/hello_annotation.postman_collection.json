@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "604625b0-d2f5-4a10-86fd-cabdf6a6a79e",
+		"name": "hello_annotation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost/hello/ding?gender=m",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/hello/ding?gender=m",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"hello",
+						"ding"
+					],
+					"query": [
+						{
+							"key": "gender",
+							"value": "m"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

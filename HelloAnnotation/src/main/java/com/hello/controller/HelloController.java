@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -21,10 +22,11 @@ public class HelloController {
 
     @AccessLimited(count = 1)
     @RequestMapping(path="hello/{name}", method = {RequestMethod.GET, RequestMethod.POST})
-    public Object hello(@PathVariable String name, @ClientIP String ip) {
+    public Object hello(@ClientIP String ip, @PathVariable String name, @RequestParam String gender) {
         return new HashMap<String, Object>() {{
-            put("name", name);
             put("ip", ip);
+            put("name", name);
+            put("gender", gender);
             put("msg", helloBean.sayHello());
         }};
     }

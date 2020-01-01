@@ -1,6 +1,5 @@
 package com.hello.controller;
 
-import com.hello.controller.HelloController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ public class HelloControllerTest {
 
     @Test
     public void testHello() {
-        Object ret = helloController.hello("test", null);
+        Object ret = helloController.hello("test", null, null);
         Assertions.assertTrue(ret.toString().contains("test"));
 
         System.out.println(ret);
