@@ -1,7 +1,13 @@
-sping:
+spring:
   redis:
     host: 127.0.0.1
     port: 6379
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/jext?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    username: dba
+    password: dba
 
 server:
   domain: 192.168.1.157
