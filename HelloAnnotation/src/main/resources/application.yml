@@ -2,3 +2,9 @@ sping:
   redis:
     host: 127.0.0.1
     port: 6379
+
+server:
+  domain: 192.168.1.157
+  port: 80
+  skip-init: false
+  testing: true
