@@ -14,11 +14,11 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping("/")
+@CrossOrigin("http://jext.top")
 public class HelloController {
     @Autowired
     HelloBean helloBean;
 
-    @CrossOrigin("http://jext.top")
     @AccessLimited(count = 1)
     @RequestMapping(path="hello/{name}", method = {RequestMethod.GET, RequestMethod.POST})
     public Object hello(@PathVariable String name, @ClientIP String ip) {
