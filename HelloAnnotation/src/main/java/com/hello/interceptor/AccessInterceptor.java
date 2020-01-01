@@ -37,8 +37,9 @@ public class AccessInterceptor implements HandlerInterceptor {
 
         String key = String.format("%s%s_%s:%s",
                 !accessLimited.ip() ? "" : ReqUtil.getIP(request),
-                !accessLimited.session() ? "" : SessionUtil.getId(ReqUtil.getSession(request)),
-                request.getMethod(), request.getRequestURI()
+                !accessLimited.session() ? "" : SessionUtil.getId(request.getSession()),
+                request.getMethod(),
+                request.getRequestURI()
         );
         long count = redisService.incr(key);
         if (count <= accessLimited.count()) {
