@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 
+@CrossOrigin("http://jext.top")
 @RestController
 @RequestMapping("/")
-@CrossOrigin("http://jext.top")
 public class HelloController {
     @Autowired
     HelloBean helloBean;
