@@ -14,6 +14,14 @@ public class HelloBeanTest {
     HelloBean helloBean;
 
     @Test
+    public void testHello() {
+        String ret = helloBean.sayHello();
+        Assertions.assertNotNull(ret);
+
+        System.out.println(ret);
+    }
+
+    @Test
     public void testValue() {
         String ret = helloBean.osName;
         Assertions.assertNotNull(ret);
