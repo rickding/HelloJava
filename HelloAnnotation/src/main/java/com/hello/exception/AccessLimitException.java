@@ -1,4 +1,4 @@
-package com.hello.interceptor;
+package com.hello.exception;
 
 import javax.servlet.ServletException;
 

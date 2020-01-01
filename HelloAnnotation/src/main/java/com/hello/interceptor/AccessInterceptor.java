@@ -1,6 +1,7 @@
 package com.hello.interceptor;
 
 import com.hello.annotation.AccessLimited;
+import com.hello.exception.AccessLimitException;
 import com.hello.service.RedisService;
 import com.hello.util.ReqUtil;
 import com.hello.util.SessionUtil;

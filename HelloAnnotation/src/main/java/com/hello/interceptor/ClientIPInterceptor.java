@@ -1,5 +1,6 @@
 package com.hello.interceptor;
 
+import com.hello.constant.ReqConstant;
 import com.hello.util.ReqUtil;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;

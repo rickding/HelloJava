@@ -1,6 +1,6 @@
 package com.hello.controller;
 
-import com.hello.interceptor.AccessLimitException;
+import com.hello.exception.AccessLimitException;
 import com.hello.util.RespUtil;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

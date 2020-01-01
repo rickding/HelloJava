@@ -1,12 +1,12 @@
 package com.hello.controller;
 
 import com.hello.annotation.AccessLimited;
-import com.hello.annotation.ClientIP;
 import com.hello.service.HelloBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,7 +25,7 @@ public class HelloController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     @AccessLimited(count = 1)
     @RequestMapping(path="hello/{name}", method = {RequestMethod.GET, RequestMethod.POST})
-    public Object hello(@ClientIP String ip, @PathVariable String name, @RequestParam String gender) {
+    public Object hello(@RequestAttribute String ip, @PathVariable String name, @RequestParam String gender) {
         return new HashMap<String, Object>() {{
             put("ip", ip);
             put("name", name);
