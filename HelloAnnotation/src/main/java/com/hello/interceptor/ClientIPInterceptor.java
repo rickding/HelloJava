@@ -1,6 +1,5 @@
 package com.hello.interceptor;
 
-import com.hello.constant.ReqConstant;
 import com.hello.util.ReqUtil;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
@@ -15,7 +14,7 @@ public class ClientIPInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         final String ip = ReqUtil.getIP(request);
-        request.setAttribute(ReqConstant.CLIENT_IP, ip);
+        request.setAttribute("ip", ip);
         return true;
     }
 
