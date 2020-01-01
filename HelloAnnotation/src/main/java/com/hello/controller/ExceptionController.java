@@ -1,8 +1,7 @@
-package com.hello.annotation.controller;
+package com.hello.controller;
 
-import com.hello.annotation.interceptor.AccessLimitException;
-import com.hello.annotation.util.RespUtil;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import com.hello.interceptor.AccessLimitException;
+import com.hello.util.RespUtil;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;

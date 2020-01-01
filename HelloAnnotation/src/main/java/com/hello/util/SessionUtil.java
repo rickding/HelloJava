@@ -1,4 +1,4 @@
-package com.hello.annotation.util;
+package com.hello.util;
 
 import javax.servlet.http.HttpSession;
 import java.util.UUID;

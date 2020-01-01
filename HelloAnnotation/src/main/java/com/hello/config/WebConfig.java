@@ -1,8 +1,8 @@
-package com.hello.annotation;
+package com.hello.config;
 
-import com.hello.annotation.interceptor.AccessInterceptor;
-import com.hello.annotation.interceptor.ClientIPInterceptor;
-import com.hello.annotation.interceptor.ClientIPResolver;
+import com.hello.interceptor.AccessInterceptor;
+import com.hello.interceptor.ClientIPInterceptor;
+import com.hello.interceptor.ClientIPResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;

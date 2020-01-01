@@ -1,8 +1,8 @@
-package com.hello.annotation.controller;
+package com.hello.controller;
 
 import com.hello.annotation.AccessLimited;
 import com.hello.annotation.ClientIP;
-import com.hello.annotation.service.HelloBean;
+import com.hello.service.HelloBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

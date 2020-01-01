@@ -1,9 +1,9 @@
-package com.hello.annotation.interceptor;
+package com.hello.interceptor;
 
 import com.hello.annotation.AccessLimited;
-import com.hello.annotation.service.RedisService;
-import com.hello.annotation.util.ReqUtil;
-import com.hello.annotation.util.SessionUtil;
+import com.hello.service.RedisService;
+import com.hello.util.ReqUtil;
+import com.hello.util.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;

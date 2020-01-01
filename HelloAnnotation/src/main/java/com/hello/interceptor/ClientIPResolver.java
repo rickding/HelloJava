@@ -1,4 +1,4 @@
-package com.hello.annotation.interceptor;
+package com.hello.interceptor;
 
 import com.hello.annotation.ClientIP;
 import org.springframework.core.MethodParameter;

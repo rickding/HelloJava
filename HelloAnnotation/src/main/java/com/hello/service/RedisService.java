@@ -1,4 +1,4 @@
-package com.hello.annotation.service;
+package com.hello.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -13,6 +13,7 @@ public class RedisService {
     @Autowired
     StringRedisTemplate stringRedisTemplate;
 
+    @SuppressWarnings("all")
     @Resource(name = "stringRedisTemplate")
     ValueOperations<String, String> strValOps;
 

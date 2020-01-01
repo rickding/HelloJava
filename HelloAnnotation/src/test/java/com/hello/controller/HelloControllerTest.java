@@ -1,6 +1,6 @@
-package com.hello.annotation;
+package com.hello.controller;
 
-import com.hello.annotation.controller.HelloController;
+import com.hello.controller.HelloController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

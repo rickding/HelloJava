@@ -1,6 +1,6 @@
-package com.hello.annotation.interceptor;
+package com.hello.interceptor;
 
-import com.hello.annotation.util.ReqUtil;
+import com.hello.util.ReqUtil;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

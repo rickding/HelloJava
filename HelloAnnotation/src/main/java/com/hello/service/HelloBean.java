@@ -1,4 +1,4 @@
-package com.hello.annotation.service;
+package com.hello.service;
 
 import com.hello.annotation.HelloAnnotation;
 import org.springframework.beans.factory.annotation.Value;
