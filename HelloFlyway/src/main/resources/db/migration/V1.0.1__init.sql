@@ -1,0 +1,20 @@
+CREATE TABLE if not EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL,
+  `title` varchar(64) DEFAULT NULL,
+  `description` longtext,
+  `password` longtext NOT NULL,
+  `permission` smallint(6) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT NULL,
+  `ip` varchar(64) DEFAULT NULL,
+  `auth_id` bigint(20) DEFAULT NULL,
+  `created` datetime(6) DEFAULT NULL,
+  `created_by` bigint(20) DEFAULT NULL,
+  `updated` datetime(6) DEFAULT NULL,
+  `updated_by` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  KEY `user_permission_a46f3ac2` (`permission`),
+  KEY `user_is_deleted_8a5fa8e1` (`is_deleted`),
+  KEY `user_auth_id_3666ad92` (`auth_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;

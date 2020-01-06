@@ -12,6 +12,9 @@ public class RedisServiceTest {
 
     @Test
     public void testInc() {
+        boolean b = true;
+        System.out.println(Double.MIN_VALUE);
+
         String key = "RedisServiceTest.testStr";
         Long ret = redisService.incr(key);
         Assertions.assertNotNull(ret);
