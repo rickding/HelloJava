@@ -13,6 +13,11 @@ public class LogMapperTest {
     LogMapper logMapper;
 
     @Test
+    public void testInsert() {
+
+    }
+
+    @Test
     public void testSelect() {
         Collection ret = logMapper.selectList(null);
         ret.forEach(System.out::println);
