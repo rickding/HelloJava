@@ -1,7 +1,7 @@
 package com.hello.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.hello.model.Log;
+import com.hello.entity.Log;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
