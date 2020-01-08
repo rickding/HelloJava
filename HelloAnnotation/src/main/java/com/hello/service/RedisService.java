@@ -22,7 +22,8 @@ public class RedisService {
         return ret == null ? 0 : ret;
     }
 
-    public Boolean expire(String key, long seconds) {
-        return stringRedisTemplate.expire(key, seconds, TimeUnit.SECONDS);
+    public boolean expire(String key, long seconds) {
+        Boolean ret = stringRedisTemplate.expire(key, seconds, TimeUnit.SECONDS);
+        return ret == null ? false : ret;
     }
 }

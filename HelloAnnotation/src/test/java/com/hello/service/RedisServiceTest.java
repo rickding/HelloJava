@@ -11,13 +11,10 @@ public class RedisServiceTest {
     RedisService redisService;
 
     @Test
-    public void testInc() {
-        boolean b = true;
-        System.out.println(Double.MIN_VALUE);
-
+    public void testIncr() {
         String key = "RedisServiceTest.testStr";
-        Long ret = redisService.incr(key);
-        Assertions.assertNotNull(ret);
+        long ret = redisService.incr(key);
+        Assertions.assertTrue(ret > 0);
 
         System.out.println(ret);
         redisService.expire(key, 1);
