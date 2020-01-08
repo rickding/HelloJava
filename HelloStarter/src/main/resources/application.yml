@@ -1,3 +1,11 @@
+server:
+  address: 127.0.0.1
+  port: 8011
+
+  compression:
+    enabled: true
+    mime-types: application/json
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
