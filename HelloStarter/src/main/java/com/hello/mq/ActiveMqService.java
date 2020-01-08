@@ -1,5 +1,6 @@
 package com.hello.mq;
 
+import com.hello.util.LogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Service;
@@ -28,10 +29,12 @@ public class ActiveMqService {
     }
 
     public void sendQueue(String msg) {
+        LogUtil.info("Send queue msg", msg);
         jmsMessagingTemplate.convertAndSend(queue, msg);
     }
 
     public void sendTopic(String msg) {
+        LogUtil.info("Send topic msg", msg);
         jmsMessagingTemplate.convertAndSend(topic, msg);
     }
 }
