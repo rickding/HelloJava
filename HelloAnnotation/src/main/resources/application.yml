@@ -10,7 +10,5 @@ spring:
     password: dba
 
 server:
-  domain: 192.168.1.157
+  address: 127.0.0.1
   port: 80
-  skip-init: false
-  testing: true

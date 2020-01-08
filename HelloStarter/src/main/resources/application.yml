@@ -11,6 +11,17 @@ job:
       cron: 0/23 * * * * ?
 
 spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 0B
+      location: files
+      max-file-size: 20MB
+      max-request-size: 20MB
+
   quartz:
     job-store-type: jdbc
     jdbc:
@@ -60,12 +71,6 @@ spring:
       trust-all: true
     pool:
       enabled: false
-
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: guest
-    password: guest
 
 logging:
   level:
