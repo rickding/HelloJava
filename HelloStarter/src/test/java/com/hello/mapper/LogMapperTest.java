@@ -2,6 +2,7 @@ package com.hello.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hello.entity.Log;
+import com.hello.util.LogUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class LogMapperTest {
         int ret = logMapper.insert(new Log() {{
             setSummary(new Date().toString());
         }});
-        System.out.println(ret);
+        LogUtil.info(ret);
 
         Assertions.assertTrue(ret > 0);
     }
@@ -31,7 +32,7 @@ public class LogMapperTest {
                 .orderByDesc("id")
                 .last(true, "limit 2")
         );
-        ret.forEach(System.out::println);
+        ret.forEach(LogUtil::info);
 
         Assertions.assertFalse(ret.isEmpty());
     }

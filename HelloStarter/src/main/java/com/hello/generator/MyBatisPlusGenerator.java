@@ -29,26 +29,6 @@ import java.util.Scanner;
  */
 public class MyBatisPlusGenerator {
     /**
-     * <p>
-     * 读取控制台内容
-     * </p>
-     */
-    public static String scanner(String tip) {
-        StringBuilder help = new StringBuilder();
-        help.append("请输入" + tip + "：");
-        System.out.println(help.toString());
-
-        Scanner scanner = new Scanner(System.in);
-        if (scanner.hasNext()) {
-            String ipt = scanner.next();
-            if (StringUtils.isNotEmpty(ipt)) {
-                return ipt;
-            }
-        }
-        throw new MybatisPlusException("请输入正确的" + tip + "！");
-    }
-
-    /**
      * RUN THIS
      */
     public static void main(String[] args) {

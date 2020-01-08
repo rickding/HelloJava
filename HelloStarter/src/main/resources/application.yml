@@ -23,3 +23,15 @@ spring:
     port: 5672
     username: guest
     password: guest
+
+logging:
+  level:
+    com.hello: info
+  file:
+    path: logs
+    name: logs/starter.log
+    max-size: 10MB
+    max-history: 7
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
