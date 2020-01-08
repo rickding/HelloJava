@@ -1,6 +1,7 @@
 package com.hello.controller;
 
 
+import com.hello.annotation.AccessLimited;
 import com.hello.mq.ActiveMqService;
 import com.hello.util.StrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class CheckController {
     @Autowired
     private ActiveMqService activeMqService;
 
+    @AccessLimited(count = 1)
     @ResponseStatus(HttpStatus.ACCEPTED)
     @RequestMapping(path="mq", method = {RequestMethod.GET, RequestMethod.POST})
     public Object mq(@RequestAttribute(required = false) String ip, @RequestParam(required = false) String msg) {
