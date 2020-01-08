@@ -77,7 +77,7 @@ public class MyBatisPlusGenerator {
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
 
-        strategy.setInclude("log");
+        strategy.setInclude("log", "user");
         strategy.setSuperEntityColumns("id");
         strategy.setTablePrefix(pc.getModuleName() + "_");
         strategy.setEntityLombokModel(true);
