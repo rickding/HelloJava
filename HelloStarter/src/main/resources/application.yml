@@ -6,7 +6,16 @@ server:
     enabled: true
     mime-types: application/json
 
+job:
+    quartz:
+      cron: 0/23 * * * * ?
+
 spring:
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/starter?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
