@@ -18,6 +18,16 @@ spring:
         max-idle: 10
         min-idle: 0
 
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    user: admin
+    password: admin
+    in-memory: false
+    packages:
+      trust-all: true
+    pool:
+      enabled: false
+
   rabbitmq:
     host: 127.0.0.1
     port: 5672

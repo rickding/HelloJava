@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
- *  Redis服务封装
+ * Redis服务封装
  * @author Ding
  * @since 2020-01-08
  */
