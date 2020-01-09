@@ -36,7 +36,7 @@ public class UserRealm extends AuthorizingRealm {
             throw new LockedAccountException();
         }
 
-        String salt = "salt";
+        String salt = "todo: add user salt";
         return new SimpleAuthenticationInfo(
                 user,
                 user.getPassword(),

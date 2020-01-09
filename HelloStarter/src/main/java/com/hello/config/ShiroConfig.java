@@ -14,15 +14,14 @@ import org.springframework.context.annotation.Configuration;
 public class ShiroConfig {
     @Bean
     public ShiroFilterChainDefinition shiroFilterChainDefinition() {
-        DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
+        DefaultShiroFilterChainDefinition chain = new DefaultShiroFilterChainDefinition();
 
-        chainDefinition.addPathDefinition("/login", "anon");
-        chainDefinition.addPathDefinition("/chk/**", "authc, roles[admin]");
-        chainDefinition.addPathDefinition("/api/**", "anon");
+        // logged in users with the 'admin' role
+        chain.addPathDefinition("/admin/**", "authc, roles[admin]");
 
         // all other paths require a logged in user
-        chainDefinition.addPathDefinition("/**", "authc");
-        return chainDefinition;
+        chain.addPathDefinition("/**", "authc");
+        return chain;
     }
 
     @Bean

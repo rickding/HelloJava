@@ -9,7 +9,6 @@ import com.hello.service.RedisService;
 import com.hello.util.CodeUtil;
 import com.hello.util.LogUtil;
 import com.hello.util.StrUtil;
-import org.apache.shiro.authz.annotation.RequiresUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;

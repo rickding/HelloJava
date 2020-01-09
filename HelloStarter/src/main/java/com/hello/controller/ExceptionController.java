@@ -1,6 +1,7 @@
 package com.hello.controller;
 
 import com.hello.exception.AccessLimitException;
+import org.apache.shiro.ShiroException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -10,6 +11,14 @@ import java.util.HashMap;
 
 @RestControllerAdvice
 public class ExceptionController {
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(ShiroException.class)
+    public Object shiroExceptionHandler(ShiroException e) {
+        return new HashMap<String, Object>() {{
+            put("msg", e.getMessage());
+        }};
+    }
+
     @ResponseStatus(HttpStatus.TOO_MANY_REQUESTS)
     @ExceptionHandler(value = AccessLimitException.class)
     public Object accessLimitExceptionHandler(AccessLimitException e) {
