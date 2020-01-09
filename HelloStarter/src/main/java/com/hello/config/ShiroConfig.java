@@ -7,6 +7,7 @@ import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition;
 import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -45,5 +46,16 @@ public class ShiroConfig {
         credentialsMatcher.setStoredCredentialsHexEncoded(false);
         credentialsMatcher.setHashIterations(1024);
         return credentialsMatcher;
+    }
+
+    /**
+     * 在引入spring aop的情况下，在方法中加入@RequiresRole等shiro注解时，会导致该方法无法映射请求。
+     * 加入setUsePrefix(true)解决这个bug。
+     */
+    @Bean
+    public static DefaultAdvisorAutoProxyCreator getDefaultAdvisorAutoProxyCreator(){
+        DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator=new DefaultAdvisorAutoProxyCreator();
+        defaultAdvisorAutoProxyCreator.setUsePrefix(true);
+        return defaultAdvisorAutoProxyCreator;
     }
 }
