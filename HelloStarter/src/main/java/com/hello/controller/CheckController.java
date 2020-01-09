@@ -9,6 +9,7 @@ import com.hello.service.RedisService;
 import com.hello.util.CodeUtil;
 import com.hello.util.LogUtil;
 import com.hello.util.StrUtil;
+import org.apache.shiro.authz.annotation.RequiresUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,7 +50,7 @@ public class CheckController extends BaseController {
     }
 
     @AccessLimited(count = 1)
-    @GetMapping(value = "chk")
+    @GetMapping(value = "/chk")
     public Object chk(@RequestAttribute(required = false) String ip) {
         return new HashMap<String, Object>() {{
             put("chk", "ok");
@@ -58,7 +59,7 @@ public class CheckController extends BaseController {
     }
 
     @AccessLimited(count = 1)
-    @GetMapping(path = "mq")
+    @GetMapping(path = "/chk/mq")
     public Object mq(@RequestAttribute(required = false) String ip) {
         if (StrUtil.isEmpty(ip)) {
             ip = String.format("check mq %s", new Date().toString());
@@ -73,7 +74,7 @@ public class CheckController extends BaseController {
     }
 
     @AccessLimited(count = 1)
-    @GetMapping(value = "/cache")
+    @GetMapping(value = "/chk/cache")
     public Object cache(@RequestAttribute(required = false) String ip) {
         // Get a unique key
         String key = null;
@@ -100,7 +101,7 @@ public class CheckController extends BaseController {
     }
 
     @AccessLimited(count = 1)
-    @GetMapping(value = "/db")
+    @GetMapping(value = "/chk/db")
     public Object db(@RequestAttribute String ip) {
         // Write a test log to db
         Log log = new Log() {{

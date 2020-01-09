@@ -31,8 +31,6 @@ public class Log extends BaseEntity {
 
     private Long authId;
 
-    private LocalDateTime created;
-
     private Long createdBy;
 
     public String getSummary() {
