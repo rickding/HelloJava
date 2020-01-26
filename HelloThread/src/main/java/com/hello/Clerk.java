@@ -1,10 +1,10 @@
 package com.hello;
 
 public class Clerk {
-    private int prodcut = -1;
+    private int product = -1;
 
-    public synchronized void setProduct(int prodcut) {
-        while (this.prodcut != -1) {
+    public synchronized void setProduct(int product) {
+        while (this.product != -1) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -12,13 +12,13 @@ public class Clerk {
             }
         }
 
-        this.prodcut = prodcut;
-        System.out.printf("Producer sets product: %d\n", this.prodcut);
+        System.out.printf("Producer sets product: %d\n", product);
+        this.product = product;
         notify();
     }
 
-    public synchronized int getProduct() {
-        while (this.prodcut == -1) {
+    public synchronized void getProduct() {
+        while (this.product == -1) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -26,10 +26,8 @@ public class Clerk {
             }
         }
 
-        int p = this.prodcut;
-        System.out.printf("Consumer gets product: %d\n", this.prodcut);
-        this.prodcut = -1;
+        System.out.printf("Consumer gets product: %d\n", this.product);
+        this.product = -1;
         notify();
-        return p;
     }
 }

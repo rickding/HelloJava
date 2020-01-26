@@ -7,6 +7,7 @@ public class Consumer implements Runnable {
         this.clerk = clerk;
     }
 
+    @Override
     public void run() {
         System.out.println("Consumer starts");
 
