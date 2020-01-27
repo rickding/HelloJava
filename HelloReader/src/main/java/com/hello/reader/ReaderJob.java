@@ -1,29 +1,31 @@
 package com.hello.reader;
 
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
+import org.springframework.scheduling.quartz.QuartzJobBean;
 
-@Service
-@Async
-public class ReaderJob {
+import java.util.Random;
+
+public class ReaderJob extends QuartzJobBean {
+    private static Random random = new Random();
     private static int URL_INDEX = -1;
-    private static final String[] URL_ARR = new String[]{
-            "https://blog.csdn.net/xiziyidi/article/details/104088036",
-            "https://blog.51cto.com/13851865/2468436",
-            "https://blog.csdn.net/xiziyidi/article/details/104003262",
-            "https://blog.51cto.com/13851865/2467461",
-    };
+
+    @Autowired
+    ReaderConfig readerConfig;
 
     @Autowired
     Reader reader;
 
-    @Async
-    @Scheduled(cron = "0 0/7 * * * *")
-    public void read() {
-        URL_INDEX = (URL_INDEX + 1) % URL_ARR.length;
-        String ret = reader.read(URL_ARR[URL_INDEX]);
-        System.out.printf("read: %s\n", ret == null || ret.length() < 50 ? ret : ret.substring(0, 50));
+    @Override
+    protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
+        String[] urlArr = readerConfig.getUrlList();
+        int count = Math.max(1, random.nextInt(urlArr.length));
+
+        for (int i = 0; i < count; i++) {
+            URL_INDEX = (URL_INDEX + 1) % urlArr.length;
+            String ret = reader.read(urlArr[URL_INDEX]);
+            System.out.printf("read: %s\n", ret == null || ret.length() < 50 ? ret : ret.substring(0, 50));
+        }
     }
 }

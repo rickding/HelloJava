@@ -22,7 +22,6 @@
         <module>HelloJUnit</module>
         <module>HelloMyBatis</module>
         <module>HelloOrder</module>
-        <module>HelloQuartz</module>
         <module>HelloRedis</module>
         <module>HelloSpringApp</module>
         <module>HelloSpringBoot</module>

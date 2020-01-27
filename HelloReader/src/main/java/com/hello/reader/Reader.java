@@ -16,7 +16,7 @@ import java.nio.charset.Charset;
 
 @Service
 public class Reader {
-    private static final String CSDN_FLAG = "https://blog.csdn.net/";
+    private static final String CSDN_FLAG = ".csdn.net/";
 
     @Autowired
     HttpClient httpClient;

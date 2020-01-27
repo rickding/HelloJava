@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix = "http")
+@ConfigurationProperties("http")
 public class HttpConfig {
     private Integer maxTotal;
     private Integer defaultMaxPerRoute;

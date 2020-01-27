@@ -5,3 +5,14 @@ http:
   connectionRequestTimeout: 500
   socketTimeout: 5000
   staleConnectionCheckEnabled: true
+
+reader:
+  cron: 0 0/7 * * * ?
+  urlList: [
+    "https://edu.csdn.net/course/play/26836/349443",
+    "https://edu.51cto.com/center/course/lesson/index?id=500132",
+    "https://blog.csdn.net/xiziyidi/article/details/104088036",
+    "https://blog.51cto.com/13851865/2468436",
+    "https://blog.csdn.net/xiziyidi/article/details/104003262",
+    "https://blog.51cto.com/13851865/2467461",
+  ]
