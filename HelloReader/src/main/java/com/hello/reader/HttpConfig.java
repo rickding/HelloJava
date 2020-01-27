@@ -1,6 +1,7 @@
 package com.hello.reader;
 
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -35,6 +36,7 @@ public class HttpConfig {
                 .setConnectionRequestTimeout(connectionRequestTimeout)
                 .setSocketTimeout(socketTimeout)
                 .setStaleConnectionCheckEnabled(staleConnectionCheckEnabled)
+                .setCookieSpec(CookieSpecs.BROWSER_COMPATIBILITY)
                 .build();
     }
 

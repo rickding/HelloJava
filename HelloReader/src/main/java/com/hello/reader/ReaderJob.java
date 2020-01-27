@@ -11,7 +11,9 @@ public class ReaderJob {
     private static int URL_INDEX = -1;
     private static final String[] URL_ARR = new String[]{
             "https://blog.csdn.net/xiziyidi/article/details/104088036",
-            "https://blog.51cto.com/13851865/2468436"
+            "https://blog.51cto.com/13851865/2468436",
+            "https://blog.csdn.net/xiziyidi/article/details/104003262",
+            "https://blog.51cto.com/13851865/2467461",
     };
 
     @Autowired
