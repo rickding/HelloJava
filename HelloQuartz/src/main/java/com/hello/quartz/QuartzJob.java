@@ -1,4 +1,4 @@
-package com.hello.reader;
+package com.hello.quartz;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -7,19 +7,19 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import java.util.Random;
 
-public class ReaderJob extends QuartzJobBean {
+public class QuartzJob extends QuartzJobBean {
     private static Random random = new Random();
     private static int URL_INDEX = -1;
 
     @Autowired
-    ReaderConfig readerConfig;
+    QuartzConfig quartzConfig;
 
     @Autowired
     Reader reader;
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        String[] urlArr = readerConfig.getUrlList();
+        String[] urlArr = quartzConfig.getUrlList();
         int count = Math.max(1, random.nextInt(urlArr.length));
 
         for (int i = 0; i < count; i++) {

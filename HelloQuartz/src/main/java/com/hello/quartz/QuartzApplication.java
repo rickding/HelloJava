@@ -1,11 +1,11 @@
-package com.hello.reader;
+package com.hello.quartz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ReaderApplication {
+public class QuartzApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ReaderApplication.class, args);
+        SpringApplication.run(QuartzApplication.class, args);
     }
 }

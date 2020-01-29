@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.hello</groupId>
-    <artifactId>reader</artifactId>
+    <artifactId>quartz</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>reader</name>
-    <description>Read Blog</description>
+    <name>HelloQuartz</name>
+    <description>Quartz job to read blog</description>
 
     <properties>
         <java.version>1.8</java.version>

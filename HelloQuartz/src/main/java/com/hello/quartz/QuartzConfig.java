@@ -1,4 +1,4 @@
-package com.hello.reader;
+package com.hello.quartz;
 
 import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
@@ -10,22 +10,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties("reader")
-public class ReaderConfig {
+@ConfigurationProperties("quartz")
+public class QuartzConfig {
     private String cron;
     private String[] urlList;
 
     @Bean
-    public JobDetail readerJob() {
-        return JobBuilder.newJob(ReaderJob.class).storeDurably().build();
+    public JobDetail quartzJob() {
+        return JobBuilder.newJob(QuartzJob.class).storeDurably().build();
     }
 
     @Bean
-    public Trigger readerTrigger() {
+    public Trigger quartzTrigger() {
         CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(cron);
 
         return TriggerBuilder.newTrigger()
-                .forJob(readerJob())
+                .forJob(quartzJob())
                 .withSchedule(scheduleBuilder)
                 .build();
     }

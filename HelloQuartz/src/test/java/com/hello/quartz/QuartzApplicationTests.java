@@ -1,10 +1,10 @@
-package com.hello.reader;
+package com.hello.quartz;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ReaderApplicationTests {
+class QuartzApplicationTests {
     @Test
     void contextLoads() {
     }

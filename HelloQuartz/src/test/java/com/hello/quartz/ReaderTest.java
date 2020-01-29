@@ -1,4 +1,4 @@
-package com.hello.reader;
+package com.hello.quartz;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
