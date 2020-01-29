@@ -8,7 +8,9 @@ http:
 
 quartz:
   cron: 0 0/7 * * * ?
-  urlList: [
+  urlArr: [
+    "https://blog.csdn.net/xiziyidi/article/details/104106934",
+    "https://blog.csdn.net/xiziyidi/article/details/104106381",
     "https://blog.csdn.net/xiziyidi/article/details/104100642",
     "https://blog.csdn.net/xiziyidi/article/details/104099637",
     "https://blog.csdn.net/xiziyidi/article/details/104098264",
@@ -18,6 +20,7 @@ quartz:
     "https://blog.51cto.com/13851865/2468436",
     "https://blog.csdn.net/xiziyidi/article/details/104087784",
     "https://blog.51cto.com/13851865/2467461",
+    "https://blog.csdn.net/xiziyidi/article/details/104024032",
     "https://blog.csdn.net/xiziyidi/article/details/104017647",
     "https://blog.csdn.net/xiziyidi/article/details/104009244",
     "https://blog.51cto.com/13851865/2466646",

@@ -1,10 +1,12 @@
 package com.hello.quartz;
 
+import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
+import java.util.Map;
 import java.util.Random;
 
 public class QuartzJob extends QuartzJobBean {
@@ -12,14 +14,18 @@ public class QuartzJob extends QuartzJobBean {
     private static int URL_INDEX = -1;
 
     @Autowired
-    QuartzConfig quartzConfig;
-
-    @Autowired
     Reader reader;
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        String[] urlArr = quartzConfig.getUrlList();
+        // get data from context
+        JobDataMap dataMap = context.getMergedJobDataMap();
+        for (Map.Entry<String, Object> data : dataMap.entrySet()) {
+            System.out.printf("%s = %s\n", data.getKey(), data.getValue());
+        }
+
+        // do work
+        String[] urlArr = (String[]) dataMap.get("url_arr");
         int count = Math.max(1, random.nextInt(urlArr.length));
 
         for (int i = 0; i < count; i++) {

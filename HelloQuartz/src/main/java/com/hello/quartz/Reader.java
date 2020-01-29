@@ -16,20 +16,12 @@ import java.nio.charset.Charset;
 
 @Service
 public class Reader {
-    private static final String CSDN_FLAG = ".csdn.net/";
-
     @Autowired
     HttpClient httpClient;
 
     public String read(String url) {
         HttpGet httpGet = new HttpGet(url);
-        if (url.startsWith(CSDN_FLAG)) {
-            //csdn
-            httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36 LBBROWSER");
-        } else {
-            //51cto
-            httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36 LBBROWSER");
-        }
+        httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36 LBBROWSER");
 
         // 判断cookie, BROWSER_COMPATIBILITY
         httpGet.getParams().setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.BROWSER_COMPATIBILITY);
