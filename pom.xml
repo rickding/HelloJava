@@ -15,9 +15,13 @@
 
     <modules>
         <module>HelloAnnotation</module>
-        <module>HelloReader</module>
         <module>HelloFlyway</module>
+        <module>HelloHack</module>
+        <module>HelloHackerRank</module>
+        <module>HelloQuartz</module>
         <module>HelloRunner</module>
+        <module>HelloSingleton</module>
+        <module>HelloThread</module>
         <module>HelloHessian</module>
         <module>HelloJUnit</module>
         <module>HelloMyBatis</module>
@@ -28,17 +32,13 @@
         <module>HelloSpringMvc</module>
         <module>HelloXml</module>
         <module>HelloCodeM</module>
-        <module>HelloHackerRank</module>
         <module>HelloDialog</module>
         <module>HelloAop</module>
-        <module>HelloThread</module>
-        <module>HelloSingleton</module>
         <module>HelloUpload</module>
         <module>HelloWeb</module>
         <module>HelloWebCustomer</module>
         <module>HelloWar</module>
         <module>HelloWebWar</module>
         <module>HelloJpa</module>
-        <module>HelloHack</module>
     </modules>
 </project>
