@@ -14,13 +14,11 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties("quartz")
 public class QuartzConfig {
     private String cron;
-    private String[] urlArr;
 
     @Bean
     public JobDetail quartzJob() {
         JobDataMap dataMap = new JobDataMap() {{
             put("job_str", "str_test");
-            put("url_arr", urlArr);
         }};
 
         return JobBuilder.newJob(QuartzJob.class)
@@ -49,13 +47,5 @@ public class QuartzConfig {
 
     public void setCron(String cron) {
         this.cron = cron;
-    }
-
-    public String[] getUrlArr() {
-        return urlArr;
-    }
-
-    public void setUrlArr(String[] urlArr) {
-        this.urlArr = urlArr;
     }
 }
