@@ -23,6 +23,7 @@
         <module>HelloHack</module>
         <module>HelloHackerRank</module>
         <module>HelloHessian</module>
+        <module>HelloHttp</module>
         <module>HelloJpa</module>
         <module>HelloJUnit</module>
         <module>HelloMyBatis</module>

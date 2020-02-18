@@ -1,0 +1,14 @@
+spring:
+  servlet:
+    multipart:
+      file-size-threshold: 0B
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+http:
+  maxTotal: 100
+  maxPerRoute: 20
+  socketTimeout: 5000
+  connectTimeout: 5000
+  requestTimeout: 5000
+  staleConnectionCheckEnabled: true
