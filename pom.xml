@@ -16,30 +16,26 @@
     <modules>
         <module>HelloActiveMQ</module>
         <module>HelloAnnotation</module>
+        <module>HelloAop</module>
+        <module>HelloCodeM</module>
+        <module>HelloDialog</module>
         <module>HelloFlyway</module>
         <module>HelloHack</module>
         <module>HelloHackerRank</module>
-        <module>HelloQuartz</module>
-        <module>HelloRunner</module>
-        <module>HelloSingleton</module>
-        <module>HelloThread</module>
         <module>HelloHessian</module>
+        <module>HelloJpa</module>
         <module>HelloJUnit</module>
         <module>HelloMyBatis</module>
         <module>HelloOrder</module>
+        <module>HelloQuartz</module>
         <module>HelloRedis</module>
-        <module>HelloSpringApp</module>
-        <module>HelloSpringBoot</module>
-        <module>HelloSpringMvc</module>
-        <module>HelloXml</module>
-        <module>HelloCodeM</module>
-        <module>HelloDialog</module>
-        <module>HelloAop</module>
-        <module>HelloUpload</module>
+        <module>HelloRunner</module>
+        <module>HelloSingleton</module>
+        <module>HelloThread</module>
+        <module>HelloWar</module>
         <module>HelloWeb</module>
         <module>HelloWebCustomer</module>
-        <module>HelloWar</module>
         <module>HelloWebWar</module>
-        <module>HelloJpa</module>
+        <module>HelloXml</module>
     </modules>
 </project>
