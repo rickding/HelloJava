@@ -23,6 +23,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
+@Api(tags = {"文件管理服务"})
 @RestController
 @RequestMapping("/file")
 public class FileController {

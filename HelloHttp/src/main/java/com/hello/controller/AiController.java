@@ -19,6 +19,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
+@Api(tags = {"AI云服务调用"})
 @RestController
 @RequestMapping("/ai")
 public class AiController {
