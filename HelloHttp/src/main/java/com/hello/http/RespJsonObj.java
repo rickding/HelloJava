@@ -13,7 +13,7 @@ import java.nio.charset.Charset;
 
 public class RespJsonObj implements ResponseHandler<JSONObject> {
     @Override
-    public JSONObject handleResponse(HttpResponse resp) throws ClientProtocolException, IOException {
+    public JSONObject handleResponse(HttpResponse resp) throws IOException {
         HttpEntity entity = resp.getEntity();
         if (entity == null) {
             throw new ClientProtocolException("Response contains no content");
@@ -22,7 +22,7 @@ public class RespJsonObj implements ResponseHandler<JSONObject> {
         // read content
         ContentType contentType = ContentType.getOrDefault(entity);
         Charset charset = contentType.getCharset();
-        String jsonStr = EntityUtils.toString(entity, charset);
+        String jsonStr = EntityUtils.toString(entity, charset == null ? Charset.forName("utf-8") : charset);
 
         // parse JSON object
         return JSONObject.parseObject(jsonStr);

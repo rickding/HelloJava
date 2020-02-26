@@ -12,7 +12,7 @@ import java.nio.charset.Charset;
 
 public class RespStr implements ResponseHandler<String> {
     @Override
-    public String handleResponse(HttpResponse httpResponse) throws ClientProtocolException, IOException {
+    public String handleResponse(HttpResponse httpResponse) throws IOException {
         HttpEntity entity = httpResponse.getEntity();
         if (entity == null) {
             throw new ClientProtocolException("Response contains no content");
@@ -21,6 +21,6 @@ public class RespStr implements ResponseHandler<String> {
         // 读取返回内容
         ContentType contentType = ContentType.getOrDefault(entity);
         Charset charset = contentType.getCharset();
-        return EntityUtils.toString(entity, charset);
+        return EntityUtils.toString(entity, charset == null ? Charset.forName("utf-8") : charset);
     }
 }

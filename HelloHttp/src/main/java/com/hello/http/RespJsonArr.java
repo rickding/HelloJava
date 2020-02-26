@@ -14,7 +14,7 @@ import java.nio.charset.Charset;
 
 public class RespJsonArr implements ResponseHandler<JSONArray> {
     @Override
-    public JSONArray handleResponse(HttpResponse resp) throws ClientProtocolException, IOException {
+    public JSONArray handleResponse(HttpResponse resp) throws IOException {
         HttpEntity entity = resp.getEntity();
         if (entity == null) {
             throw new ClientProtocolException("Response contains no content");
@@ -23,7 +23,7 @@ public class RespJsonArr implements ResponseHandler<JSONArray> {
         // read content
         ContentType contentType = ContentType.getOrDefault(entity);
         Charset charset = contentType.getCharset();
-        String jsonStr = EntityUtils.toString(entity, charset);
+        String jsonStr = EntityUtils.toString(entity, charset == null ? Charset.forName("utf-8") : charset);
 
         // parse JSON array
         return JSONObject.parseArray(jsonStr);
