@@ -1,15 +1,14 @@
 package com.hello;
 
-/**
- * Hello world!
- */
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class App {
+    static ExecutorService executorService = Executors.newFixedThreadPool(4);
+
     public static void main(String[] args) {
         Clerk clerk = new Clerk();
-        Thread producerThread = new Thread(new Producer(clerk));
-        Thread consumerThread = new Thread(new Consumer(clerk));
-
-        producerThread.start();
-        consumerThread.start();
+        executorService.execute(new Producer(clerk));
+        executorService.execute(new Consumer(clerk));
     }
 }

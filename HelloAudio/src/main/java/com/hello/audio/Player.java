@@ -18,7 +18,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 
 class Player implements Runnable {
     private static ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(
-            1,
+            4,
             new BasicThreadFactory.Builder().namingPattern("audio-player-pool-%d").daemon(true).build()
     );
 
