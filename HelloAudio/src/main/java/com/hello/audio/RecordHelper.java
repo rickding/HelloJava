@@ -29,6 +29,9 @@ public class RecordHelper {
 
     private ByteArrayOutputStream byteOutputStream = null;
 
+    private RecordHelper() {
+    }
+
     public void capture(TimeListener timeListener, Long msDuration) {
         byteOutputStream = new ByteArrayOutputStream();
         Recorder.capture(byteOutputStream, timeListener, msDuration);

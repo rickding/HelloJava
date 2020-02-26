@@ -27,12 +27,10 @@ public class ChatUtil {
         System.out.println(ret);
 
         String fileUrl = ret.getString("msg");
-        if (fileUrl != null) {
-            try {
-                Player.asyncPlay(new URL(fileUrl));
-            } catch (MalformedURLException e) {
-                System.err.println(e.getMessage());
-            }
+        try {
+            Player.asyncPlay(new URL(fileUrl));
+        } catch (MalformedURLException e) {
+            System.err.println(e.getMessage());
         }
     }
 }
