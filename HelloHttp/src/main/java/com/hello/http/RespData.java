@@ -58,7 +58,7 @@ public class RespData implements ResponseHandler<byte[]> {
     }
 
     @Override
-    public byte[] handleResponse(HttpResponse response) throws ClientProtocolException, IOException {
+    public byte[] handleResponse(HttpResponse response) throws IOException {
         // 判断响应状态
         if (response.getStatusLine().getStatusCode() >= 300) {
             throw new IOException("HTTP Request is not success, Response code is " + response.getStatusLine().getStatusCode());
