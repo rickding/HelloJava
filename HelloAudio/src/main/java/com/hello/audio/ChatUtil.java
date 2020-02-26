@@ -26,11 +26,16 @@ public class ChatUtil {
         );
         System.out.println(ret);
 
-        String fileUrl = ret.getString("msg");
-        try {
-            Player.asyncPlay(new URL(fileUrl));
-        } catch (MalformedURLException e) {
-            System.err.println(e.getMessage());
+        if (ret != null && ret.containsKey("msg")) {
+            String fileUrl = ret.getString("msg");
+            try {
+                Player.asyncPlay(new URL(fileUrl));
+            } catch (MalformedURLException e) {
+                System.err.println(e.getMessage());
+            }
+        } else {
+            // 播放自己的声音吧
+            recordHelper.play();
         }
     }
 }
