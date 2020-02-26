@@ -1,5 +1,7 @@
 package com.hello.audio;
 
+import org.apache.commons.lang3.concurrent.BasicThreadFactory;
+
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -11,8 +13,15 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 
 class Player implements Runnable {
+    private static ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(
+            1,
+            new BasicThreadFactory.Builder().namingPattern("audio-player-pool-%d").daemon(true).build()
+    );
+
     public static void asyncPlay(URL fileUrl) {
         if (fileUrl == null) {
             return;
@@ -27,9 +36,7 @@ class Player implements Runnable {
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
-
-        Thread thread = new Thread(player);
-        thread.start();
+        executorService.execute(player);
     }
 
     public static void asyncPlay(ByteArrayOutputStream byteOutputStream) {
@@ -47,9 +54,7 @@ class Player implements Runnable {
         Player player = new Player();
         player.audioFormat = audioFormat;
         player.audioStream = new AudioInputStream(audioStream, audioFormat, len / audioFormat.getFrameSize());
-
-        Thread thread = new Thread(player);
-        thread.start();
+        executorService.execute(player);
     }
 
     private AudioFormat audioFormat;

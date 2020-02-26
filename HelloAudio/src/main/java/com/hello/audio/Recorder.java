@@ -1,5 +1,7 @@
 package com.hello.audio;
 
+import org.apache.commons.lang3.concurrent.BasicThreadFactory;
+
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
@@ -7,8 +9,15 @@ import javax.sound.sampled.TargetDataLine;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Date;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 
 class Recorder implements Runnable {
+    private static ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(
+            1,
+            new BasicThreadFactory.Builder().namingPattern("audio-player-pool-%d").daemon(true).build()
+    );
+
     private static Long msDuration = null;
     private static Boolean isRecording = false;
 
@@ -21,8 +30,7 @@ class Recorder implements Runnable {
 
         // 创建录音线程
         Recorder recorder = new Recorder(outputStream, timeListener);
-        Thread thread = new Thread(recorder);
-        thread.start();
+        executorService.execute(recorder);
     }
 
     public static void stop() {
