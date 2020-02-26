@@ -17,6 +17,7 @@
         <module>HelloActiveMQ</module>
         <module>HelloAnnotation</module>
         <module>HelloAop</module>
+        <module>HelloAudio</module>
         <module>HelloCodeM</module>
         <module>HelloDialog</module>
         <module>HelloFlyway</module>

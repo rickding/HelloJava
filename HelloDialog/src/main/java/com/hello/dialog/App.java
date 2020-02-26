@@ -17,29 +17,35 @@ public class App {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(false);
 
-        // Create buttons
-        JButton btn = new JButton("Show Dialog");
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                showDialog(frame, frame);
-            }
-        });
-
         // create panel
         JPanel panel = new JPanel();
-        panel.add(btn);
+        Box verticalBox = Box.createVerticalBox();
+        panel.add(verticalBox);
+
+        // Create buttons
+        verticalBox.add(new JButton("Record") {{
+            addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // Record audio
+                }
+            });
+        }});
+
+        verticalBox.add(new JButton("About") {{
+            addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    showDialog(frame, frame);
+                }
+            });
+        }});
 
         // Show panel
         frame.setContentPane(panel);
         frame.setVisible(true);
     }
 
-    /**
-     * Show dialog
-     * @param owner
-     * @param parentComponnent
-     */
     private static void showDialog(Frame owner, Component parentComponnent) {
         // create dialog
         final JDialog dialog = new JDialog(owner, "Info", true);
@@ -47,21 +53,20 @@ public class App {
         dialog.setResizable(false);
         dialog.setLocationRelativeTo(parentComponnent);
 
-        // create content
-        JLabel label = new JLabel("Message");
-        JButton btn = new JButton("OK");
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // close dialog
-                dialog.dispose();
-            }
-        });
-
         // Add list
         Box verticalBox = Box.createVerticalBox();
-        verticalBox.add(label);
-        verticalBox.add(btn);
+
+        // create content
+        verticalBox.add(new JLabel("Message"));
+        verticalBox.add(new JButton("OK") {{
+            addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // close dialog
+                    dialog.dispose();
+                }
+            });
+        }});
 
         // Add to panel
         JPanel panel = new JPanel();
