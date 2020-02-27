@@ -1,13 +1,10 @@
 package com.hello.audio;
 
-import com.alibaba.fastjson.JSONObject;
 import com.hello.http.HttpUtil;
-import com.hello.http.RespJsonObj;
+import com.hello.http.RespData;
 import com.hello.util.B64Util;
 
 import java.io.ByteArrayOutputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.HashMap;
 
 public class ChatUtil {
@@ -15,24 +12,23 @@ public class ChatUtil {
         RecordHelper recordHelper = RecordHelper.getInst();
         final ByteArrayOutputStream data = recordHelper.save(new ByteArrayOutputStream());
 
-        JSONObject ret = HttpUtil.sendHttpPost(
+        RespData resp = new RespData();
+        byte[] ret = HttpUtil.sendHttpPost(
                 "http://localhost:8011/speech/walle",
                 null, new HashMap<String, Object>() {{
                     put("size", data.size());
                     put("format", "wav");
                     put("audio", B64Util.encode(data.toByteArray()));
-                    put("url", "1");
-                }}, new RespJsonObj()
+                    put("url", "0");
+                    put("data", "1");
+                }}, resp
         );
-        System.out.println(ret);
+        System.out.printf("%s, %s, %s, %d\n",
+                resp.getContentType(), resp.getFileName(), resp.getFileExt(), resp.getContentLength()
+        );
 
-        if (ret != null && ret.containsKey("msg")) {
-            String fileUrl = ret.getString("msg");
-            try {
-                Player.asyncPlay(new URL(fileUrl));
-            } catch (MalformedURLException e) {
-                System.err.println(e.getMessage());
-            }
+        if (ret != null && ret.length > 0) {
+            Player.asyncPlay(ret);
         } else {
             // 播放自己的声音吧
             recordHelper.play();

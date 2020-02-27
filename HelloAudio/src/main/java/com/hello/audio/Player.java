@@ -22,6 +22,25 @@ class Player implements Runnable {
             new BasicThreadFactory.Builder().namingPattern("audio-player-pool-%d").daemon(true).build()
     );
 
+    public static void asyncPlay(byte[] audioBytes) {
+        if (audioBytes == null || audioBytes.length <= 0) {
+            return;
+        }
+
+        ByteArrayInputStream audioStream = new ByteArrayInputStream(audioBytes);
+
+        // 播放进程
+        Player player = new Player();
+        try {
+            player.audioStream = AudioSystem.getAudioInputStream(audioStream);
+        } catch (UnsupportedAudioFileException e) {
+            System.err.println(e.getMessage());
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        executorService.execute(player);
+    }
+
     public static void asyncPlay(URL fileUrl) {
         if (fileUrl == null) {
             return;

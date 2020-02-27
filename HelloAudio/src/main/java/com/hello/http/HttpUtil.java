@@ -39,6 +39,7 @@ import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -163,6 +164,11 @@ public class HttpUtil {
         return sendHttpPost(httpUrl, headers, params, new RespStr());
     }
 
+    public static <T> T sendHttpPost(String httpUrl, Map<String, String> headers, Map<String, Object> params, File file, ResponseHandler<T> handler) {
+        File[] files = new File[]{file};
+        return sendHttpPost(httpUrl, headers, params, Arrays.asList(files), handler);
+    }
+
     public static <T> T sendHttpPost(String httpUrl, Map<String, String> headers, Map<String, Object> params, Collection<File> files, ResponseHandler<T> handler) {
         HttpPost httpPost = new HttpPost(httpUrl);
         fillHeaders(httpPost, headers);
@@ -178,12 +184,8 @@ public class HttpUtil {
         }
 
         if (!CollectionUtils.isEmpty(files)) {
-            for (Object file : files) {
-                if (file instanceof File) {
-                    meBuilder.addBinaryBody("file", (File) file);
-                } else {
-                    LogUtil.error("un-supported file object", file.getClass().getSimpleName());
-                }
+            for (File file : files) {
+                meBuilder.addBinaryBody("file", file);
             }
         }
 
