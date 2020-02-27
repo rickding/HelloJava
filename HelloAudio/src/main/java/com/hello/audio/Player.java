@@ -79,7 +79,7 @@ class Player implements Runnable {
     private AudioFormat audioFormat;
     private AudioInputStream audioStream;
 
-    private Player() {
+    private Player(){
     }
 
     @Override

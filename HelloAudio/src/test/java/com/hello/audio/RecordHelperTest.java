@@ -11,7 +11,7 @@ public class RecordHelperTest {
         RecordHelper recordHelper = RecordHelper.getInst();
 
         // Record
-        recordHelper.capture(null, null);
+        recordHelper.record(null, null);
         recordHelper.stop(5000);
 
         ByteArrayOutputStream ret = recordHelper.save(new ByteArrayOutputStream());

@@ -24,7 +24,7 @@ public class App {
 
         // Create buttons
         final long msDuration = 5000;
-        final String title = "Chat";
+        final String title = "AI语音聊天";
         final JButton recordBtn = new JButton(title);
         recordBtn.addActionListener(new ActionListener() {
             @Override
@@ -32,7 +32,7 @@ public class App {
                 recordBtn.setText(String.format("%s(%d)", title, msDuration / 1000));
 
                 final RecordHelper recordHelper = RecordHelper.getInst();
-                recordHelper.capture(new TimeListener() {
+                recordHelper.record(new TimeListener() {
                     @Override
                     public void timeUpdated(long seconds) {
                         recordBtn.setText(String.format("%s(%d)", title, msDuration / 1000 - seconds));

@@ -32,9 +32,9 @@ public class RecordHelper {
     private RecordHelper() {
     }
 
-    public void capture(TimeListener timeListener, Long msDuration) {
+    public void record(TimeListener timeListener, Long msDuration) {
         byteOutputStream = new ByteArrayOutputStream();
-        Recorder.capture(byteOutputStream, timeListener, msDuration);
+        Recorder.record(byteOutputStream, timeListener, msDuration);
     }
 
     public void stop() {

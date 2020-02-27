@@ -19,12 +19,11 @@ public class ChatUtil {
                     put("size", data.size());
                     put("format", "wav");
                     put("audio", B64Util.encode(data.toByteArray()));
-                    put("url", "0");
-                    put("data", "1");
                 }}, resp
         );
-        System.out.printf("%s, %s, %s, %d\n",
-                resp.getContentType(), resp.getFileName(), resp.getFileExt(), resp.getContentLength()
+        System.out.printf("%s, %s, %s, %d, %d\n",
+                resp.getContentType(), resp.getFileName(), resp.getFileExt(),
+                resp.getContentLength(), ret == null ? 0 : ret.length
         );
 
         if (ret != null && ret.length > 0) {
