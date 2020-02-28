@@ -1,6 +1,5 @@
 package com.hello;
 
-import com.hello.audio.ChatUtil;
 import com.hello.audio.RecordHelper;
 import com.hello.audio.TimeListener;
 
@@ -11,7 +10,7 @@ import java.awt.event.ActionListener;
 public class App {
     public static void main(String[] args) {
         // create frame
-        final JFrame frame = new JFrame("Walle");
+        final JFrame frame = new JFrame("Audio");
         frame.setSize(300, 300);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -24,7 +23,7 @@ public class App {
 
         // Create buttons
         final long msDuration = 5000;
-        final String title = "AI语音聊天";
+        final String title = "Record";
         final JButton recordBtn = new JButton(title);
         recordBtn.addActionListener(new ActionListener() {
             @Override
@@ -41,7 +40,7 @@ public class App {
                     @Override
                     public void stopped(long seconds) {
                         recordBtn.setText(title);
-                        ChatUtil.chat();
+                        recordHelper.play();
                     }
                 }, msDuration);
             }
