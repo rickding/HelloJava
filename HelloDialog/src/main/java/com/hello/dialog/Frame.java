@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class Frame extends JFrame {
     public Frame(){
@@ -31,19 +32,33 @@ public class Frame extends JFrame {
         this.add(bottomPanel, BorderLayout.SOUTH);
 
         // Create buttons
-        bottomPanel.add(new JButton("Btn4"), BorderLayout.CENTER);
-        bottomPanel.add(new JButton("Btn5"), BorderLayout.NORTH);
+        bottomPanel.add(new JButton("Btn4"), BorderLayout.NORTH);
+        bottomPanel.add(new JButton("Btn5"), BorderLayout.CENTER);
         bottomPanel.add(new JButton("Btn6"), BorderLayout.WEST);
         bottomPanel.add(new JButton("Btn7"), BorderLayout.EAST);
 
         // create panel
         JPanel centerPanel = new JPanel();
-        Box verticalBox = Box.createVerticalBox();
-        centerPanel.add(verticalBox);
+        centerPanel.setLayout(new BorderLayout());
         this.add(centerPanel, BorderLayout.CENTER);
+
+        Box verticalBox = Box.createVerticalBox();
+        centerPanel.add(verticalBox, BorderLayout.CENTER);
+
+        final JTextArea textArea = new JTextArea();
+        textArea.setEditable(false);
 
         // Create buttons
         final JFrame frame = this;
+        verticalBox.add(new JButton("Edit") {{
+            addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    textArea.insert(String.format("Edit %d: %s\n", textArea.getLineCount(), new Date().toString()), 0);
+                }
+            });
+        }}, BorderLayout.NORTH);
+
         verticalBox.add(new JButton("About") {{
             addActionListener(new ActionListener() {
                 @Override
@@ -51,6 +66,8 @@ public class Frame extends JFrame {
                     Dialog.showDialog(frame, frame);
                 }
             });
-        }});
+        }}, BorderLayout.NORTH);
+
+        verticalBox.add(textArea, BorderLayout.SOUTH);
     }
 }
