@@ -16,7 +16,6 @@ public class FtpUtilTest {
         InputStream fileStream = new FileInputStream(new File(filePath));
 
         boolean ret = FtpUtil.upload("unit-testing", String.format("%d_%s", new Date().getHours(), filePath), fileStream);
-
         fileStream.close();
         FtpUtil.close();
 
