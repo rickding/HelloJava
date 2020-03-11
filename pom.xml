@@ -21,6 +21,7 @@
         <module>HelloCodeM</module>
         <module>HelloDialog</module>
         <module>HelloFlyway</module>
+        <module>HelloFtp</module>
         <module>HelloHack</module>
         <module>HelloHackerRank</module>
         <module>HelloHessian</module>
