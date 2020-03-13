@@ -29,14 +29,14 @@ public class QuartzConfig {
 
     @Bean
     public Trigger quartzTrigger() {
-        CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(cron);
+        CronScheduleBuilder schedule = CronScheduleBuilder.cronSchedule(cron);
         JobDataMap dataMap = new JobDataMap() {{
             put("trigger_int", 333);
         }};
 
         return TriggerBuilder.newTrigger()
                 .forJob(quartzJob())
-                .withSchedule(scheduleBuilder)
+                .withSchedule(schedule)
                 .usingJobData(dataMap)
                 .build();
     }
