@@ -25,6 +25,7 @@
         <module>HelloHack</module>
         <module>HelloHackerRank</module>
         <module>HelloHessian</module>
+        <module>HelloHtml</module>
         <module>HelloHttp</module>
         <module>HelloJpa</module>
         <module>HelloJUnit</module>
@@ -34,6 +35,7 @@
         <module>HelloRedis</module>
         <module>HelloRunner</module>
         <module>HelloSingleton</module>
+        <module>HelloSocket</module>
         <module>HelloThread</module>
         <module>HelloWar</module>
         <module>HelloWeb</module>
