@@ -19,7 +19,7 @@
             }
 
             // 建立连接
-            var socketUrl = "ws://localhost:8080/ws/" + $("#uid").val();
+            var socketUrl = "ws://localhost:8200/";
             socket = new WebSocket(socketUrl);
             socket.onopen = function () {
                 $("#status").html("WebSocket连接成功");

@@ -14,7 +14,13 @@ public class SocketController {
 
     @RequestMapping("/ws")
     public String ws(Model model){
-        model.addAttribute("msg","Socket!");
+        model.addAttribute("msg","Web Socket!");
         return "socket";
+    }
+
+    @RequestMapping("/tio")
+    public String tio(Model model){
+        model.addAttribute("msg","Tio Socket!");
+        return "tio";
     }
 }
