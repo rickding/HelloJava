@@ -19,52 +19,52 @@ public class SocketServer {
     private static ConcurrentHashMap<String, SocketServer> webSocketMap = new ConcurrentHashMap<>();
 
     private Session session;
-    private String userId;
+    private String uid;
 
-    public static void sendMessage(String userId, String message) {
-        System.out.printf("Send message: %s, %s", userId, message);
-        if (StringUtils.isNotBlank(userId) && webSocketMap.containsKey(userId)) {
-            webSocketMap.get(userId).sendMessage(message);
+    public static void sendMessage(String uid, String msg) {
+        System.out.printf("Send message: %s, %s", uid, msg);
+        if (StringUtils.isNotBlank(uid) && webSocketMap.containsKey(uid)) {
+            webSocketMap.get(uid).sendMessage(msg);
         } else {
-            System.err.printf("Offline: %s\n", userId);
+            System.err.printf("Offline: %s\n", uid);
         }
     }
 
-    private void sendMessage(String message) {
+    private void sendMessage(String msg) {
         try {
-            session.getBasicRemote().sendText(message);
+            session.getBasicRemote().sendText(msg);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }
 
     @OnMessage
-    public void onMessage(String message, Session session) {
-        System.out.printf("Receive message: %s, %s\n", userId, message);
+    public void onMessage(String msg, Session session) {
+        System.out.printf("Receive message: %s, %s\n", uid, msg);
 
-        for (String userId : webSocketMap.keySet()) {
-            sendMessage(userId, String.format("%s消息: %s", userId.equals(this.userId) ? "自己" : "转发", message));
+        for (String uid : webSocketMap.keySet()) {
+            sendMessage(uid, String.format("%s消息: %s", uid.equals(this.uid) ? "自己" : "转发", msg));
         }
     }
 
     @OnOpen
-    public void onOpen(Session session, @PathParam("uid") String userId) {
+    public void onOpen(Session session, @PathParam("uid") String uid) {
         this.session = session;
-        this.userId = userId;
+        this.uid = uid;
 
-        webSocketMap.put(userId, this);
-        System.out.printf("Online: %d, %s\n", webSocketMap.size(), userId);
+        webSocketMap.put(uid, this);
+        System.out.printf("Online: %d, %s\n", webSocketMap.size(), uid);
         sendMessage("连接成功");
     }
 
     @OnClose
     public void onClose() {
-        webSocketMap.remove(userId);
-        System.out.printf("Offline: %d, %s\n", webSocketMap.size(), userId);
+        webSocketMap.remove(uid);
+        System.out.printf("Offline: %d, %s\n", webSocketMap.size(), uid);
     }
 
     @OnError
     public void onError(Session session, Throwable error) {
-        System.err.printf("Error: %s, %s\n", userId, error.getMessage());
+        System.err.printf("Error: %s, %s\n", uid, error.getMessage());
     }
 }

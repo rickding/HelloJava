@@ -2,3 +2,4 @@ tio:
   websocket:
     server:
       port: 8200
+      heartbeat-timeout: 100000

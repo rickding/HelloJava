@@ -40,9 +40,7 @@
     }
 
     function sendMessage() {
-        if (typeof(WebSocket) === "undefined") {
-            $("#status").html("浏览器不支持WebSocket");
-        } else if (socket === undefined) {
+        if (socket === undefined) {
             $("#status").html("请先连接Socket");
         } else {
             socket.send($("#msg").val() + ', ' + new Date().getTime());
