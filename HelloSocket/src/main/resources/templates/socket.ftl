@@ -43,7 +43,7 @@
         if (socket === undefined) {
             $("#status").html("请先连接Socket");
         } else {
-            socket.send($("#msg").val() + ', ' + new Date().getTime());
+            socket.send($("#msg").val() + ", " + new Date().getTime());
         }
     }
 </script>
