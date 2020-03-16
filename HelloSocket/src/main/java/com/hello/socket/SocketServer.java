@@ -41,7 +41,10 @@ public class SocketServer {
     @OnMessage
     public void onMessage(String message, Session session) {
         System.out.printf("Receive message: %s, %s\n", userId, message);
-        sendMessage(String.format("转发消息: %s", message));
+
+        for (String userId : webSocketMap.keySet()) {
+            sendMessage(userId, String.format("%s消息: %s", userId.equals(this.userId) ? "自己" : "转发", message));
+        }
     }
 
     @OnOpen
