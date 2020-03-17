@@ -40,7 +40,7 @@ public class SocketServer {
 
     @OnMessage
     public void onMessage(String msg, Session session) {
-        System.out.printf("Receive message: %s, %s\n", uid, msg);
+        System.out.printf("Receive message: %s, %s, %s\n", uid, session.getId(), msg);
 
         for (String uid : webSocketMap.keySet()) {
             sendMessage(uid, String.format("%s消息: %s", uid.equals(this.uid) ? "自己" : "转发", msg));
@@ -60,11 +60,11 @@ public class SocketServer {
     @OnClose
     public void onClose() {
         webSocketMap.remove(uid);
-        System.out.printf("Offline: %d, %s\n", webSocketMap.size(), uid);
+        System.out.printf("Offline 1, %s, online: %d\n", uid, webSocketMap.size());
     }
 
     @OnError
-    public void onError(Session session, Throwable error) {
-        System.err.printf("Error: %s, %s\n", uid, error.getMessage());
+    public void onError(Session session, Throwable e) {
+        System.err.printf("Error: %s, %s, %s\n", uid, session.getId(), e.getMessage());
     }
 }
