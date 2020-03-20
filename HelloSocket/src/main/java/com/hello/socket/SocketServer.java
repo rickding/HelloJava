@@ -22,7 +22,7 @@ public class SocketServer {
     private String uid;
 
     public static void sendMessage(String uid, String msg) {
-        System.out.printf("Send message: %s, %s", uid, msg);
+        System.out.printf("Send message: %s, %s\n", uid, msg);
         if (StringUtils.isNotBlank(uid) && webSocketMap.containsKey(uid)) {
             webSocketMap.get(uid).sendMessage(msg);
         } else {
@@ -30,7 +30,7 @@ public class SocketServer {
         }
     }
 
-    private void sendMessage(String msg) {
+    public void sendMessage(String msg) {
         try {
             session.getBasicRemote().sendText(msg);
         } catch (IOException e) {

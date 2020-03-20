@@ -16,14 +16,15 @@ public class TioMsgHandler implements IWsMsgHandler {
     @Autowired
     private TioWebSocketServerBootstrap tioServer;
 
+    public void sendMessage(String msg) {
+        Tio.sendToAll(tioServer.getServerTioConfig(), WsResponse.fromText(msg, "utf-8"));
+    }
+
     @Override
     public Object onText(WsRequest wsRequest, String msg, ChannelContext channelContext) throws Exception {
         System.out.printf("收到文本消息：%s\n", msg);
 
-        Tio.sendToAll(
-                tioServer.getServerTioConfig(),
-                WsResponse.fromText(String.format("转发消息: %s", msg),"utf-8")
-        );
+        sendMessage(String.format("转发消息: %s", msg));
         return String.format("收到消息: %s", msg);
     }
 

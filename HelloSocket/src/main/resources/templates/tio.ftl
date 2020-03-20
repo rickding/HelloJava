@@ -21,12 +21,12 @@
             // 建立连接
             var socketUrl = "ws://localhost:8200/";
             socket = new WebSocket(socketUrl);
-            socket.onopen = function () {
-                $("#status").html("WebSocket连接成功");
-            };
-
             socket.onmessage = function (msg) {
                 $("#status").html(msg.data);
+            };
+
+            socket.onopen = function () {
+                $("#status").html("WebSocket连接成功");
             };
 
             socket.onclose = function () {
@@ -35,7 +35,7 @@
 
             socket.onerror = function () {
                 $("#status").html("WebSocket错误");
-            }
+            };
         }
     }
 
@@ -53,7 +53,7 @@ ${msg}
 
 <br/>uid:
 <div><input id="uid" name="uid" value="user_id"></div>
-<br/>msg：
+<br/>msg:
 <div><input id="msg" name="msg" value="Hello WebSocket"></div>
 
 <br/>
