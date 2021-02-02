@@ -31,9 +31,11 @@
         <module>HelloJUnit</module>
         <module>HelloMyBatis</module>
         <module>HelloOrder</module>
+        <module>HelloPDF</module>
         <module>HelloQuartz</module>
         <module>HelloRedis</module>
         <module>HelloRunner</module>
+        <module>HelloShiro</module>
         <module>HelloSingleton</module>
         <module>HelloSocket</module>
         <module>HelloThread</module>
