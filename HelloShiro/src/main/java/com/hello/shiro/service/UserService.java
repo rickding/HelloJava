@@ -13,7 +13,7 @@ import java.util.Map;
  * @author dingxl
  */
 @Service
-public class LoginService {
+public class UserService {
     static final Map<String, User> USER_MAP;
 
     static {

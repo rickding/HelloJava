@@ -3,7 +3,7 @@ package com.hello.shiro.config;
 import com.hello.shiro.model.Permission;
 import com.hello.shiro.model.Role;
 import com.hello.shiro.model.User;
-import com.hello.shiro.service.LoginService;
+import com.hello.shiro.service.UserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -20,7 +20,7 @@ import org.springframework.util.StringUtils;
  */
 public class ShiroRealm extends AuthorizingRealm {
     @Autowired
-    LoginService loginService;
+    UserService userService;
 
     /**
      * 权限配置类
@@ -29,7 +29,7 @@ public class ShiroRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         // 查询用户
         String name = principalCollection.getPrimaryPrincipal().toString();
-        User user = loginService.getUserByName(name);
+        User user = userService.getUserByName(name);
         if (user == null) {
             return null;
         }
@@ -57,7 +57,7 @@ public class ShiroRealm extends AuthorizingRealm {
 
         // 获取用户信息
         String name = authenticationToken.getPrincipal().toString();
-        User user = loginService.getUserByName(name);
+        User user = userService.getUserByName(name);
 
         // 验证authenticationToken和simpleAuthenticationInfo
         return user == null ? null : new SimpleAuthenticationInfo(name, user.getPassword(), getName());

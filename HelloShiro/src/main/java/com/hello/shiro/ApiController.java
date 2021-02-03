@@ -1,5 +1,7 @@
-package com.hello.shiro.controller;
+package com.hello.shiro;
 
+import com.hello.shiro.model.Permission;
+import com.hello.shiro.model.Role;
 import com.hello.shiro.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
@@ -46,19 +48,20 @@ public class ApiController {
         return "login success";
     }
 
-    @RequiresRoles("admin")
+    @RequiresRoles(Role.ADMIN)
     @GetMapping("/admin")
     public String admin() {
         return "admin success!";
     }
 
-    @RequiresPermissions("query")
+    @RequiresRoles(Role.USER)
+    @RequiresPermissions(Permission.QUERY)
     @GetMapping("/query")
     public String query() {
         return "query success!";
     }
 
-    @RequiresPermissions("add")
+    @RequiresPermissions(Permission.ADD)
     @GetMapping("/add")
     public String add() {
         return "add success!";
